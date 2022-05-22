@@ -10,68 +10,61 @@ public class Flugzeug {
     private String modell;
     private Integer baujahr;
 
-    public Flugzeug(String flugzeugUUID, String marke, String modell, Integer baujahr) {
-        this.flugzeugUUID = flugzeugUUID;
-        this.marke = marke;
-        this.modell = modell;
-        this.baujahr = baujahr;
-    }
-
     /**
-     * bekommt flugzeugUUID
-     * @return wert der Variable flugzeugUUID
+     * gets flugzeugUUID
+     * @return value of the varible flugzeugUUID
      */
     public String getFlugzeugUUID() {
         return flugzeugUUID;
     }
 
     /**
-     * setzt flugzeugUUID
+     * sets flugzeugUUID
      */
     public void setFlugzeugUUID(String flugzeugUUID) {
         this.flugzeugUUID = flugzeugUUID;
     }
 
     /**
-     * bekommt marke
-     * @return wert der Variable marke
+     * gets marke
+     * @return value of the varible marke
      */
     public String getMarke() {
         return marke;
     }
 
     /**
-     * setzt marke
+     * sets marke
      */
     public void setMarke(String marke) {
         this.marke = marke;
     }
 
     /**
-     * bekommt modell
-     * @return wert der Variable modell
+     * gets modell
+     * @return value of the varible modell
      */
     public String getModell() {
         return modell;
     }
 
     /**
-     * setzt modell
+     * sets modell
      */
     public void setModell(String modell) {
         this.modell = modell;
     }
 
     /**
-     * bekommt baujahr
-     * @return wert der Variable baujahr
+     * gets baujahr
+     * @return value of the varible baujahr
      */
     public Integer getBaujahr() {
         return baujahr;
     }
 
     /**
-     * setzt baujahr
+     * sets baujahr
      */
     public void setBaujahr(Integer baujahr) {
         this.baujahr = baujahr;

@@ -10,48 +10,67 @@ public class Flug {
     private String flugUUID;
     private List<Passagier> passagierListe;
     private Flugzeug flugzeug;
+    private Flug flug;
 
 /**
- * Konstruktor für alle Attribute
- */
-    public Flug(String flugUUID, List<Passagier> passagierListe, Flugzeug flugzeug) {
-        this.flugUUID = flugUUID;
-        this.passagierListe = passagierListe;
-        this.flugzeug = flugzeug;
-    }
-
-/**
- * bekommt flugUUID
- * @return wert der Variable flugUUID
+ * gets flugUUID
+ * @return value of the variable flugUUID
  */
     public String getFlugUUID() {
         return flugUUID;
     }
 
 /**
- * setzt flugUUID
+ * sets flugUUID
  */
     public void setFlugUUID(String flugUUID) {
         this.flugUUID = flugUUID;
     }
 
 /**
- * bekommt passagierListe
- * @return wert der Liste passagierListe
+ * gets passagierListe
+ * @return value of the variable passagierListe
  */
     public List<Passagier> getPassagierListe() {
         return passagierListe;
     }
 
+    /**
+     * sets passagierListe
+     */
     public void setPassagierListe(List<Passagier> passagierListe) {
         this.passagierListe = passagierListe;
     }
 
+    /**
+     * gets flugUUID
+     * @return value of the variable flugUUID
+     */
     public Flugzeug getFlugzeug() {
         return flugzeug;
     }
 
+    /**
+     * sets flugUUID
+     */
     public void setFlugzeug(Flugzeug flugzeug) {
         this.flugzeug = flugzeug;
     }
+
+    /**
+     * gets flug
+     * @return value of the variable flug
+     */
+    public Flug getFlug() {
+        return flug;
+    }
+
+    /**
+     * sets flug
+     */
+    public void setFlug(Flug flug) {
+        this.flug = flug;
+    }
 }
+
+

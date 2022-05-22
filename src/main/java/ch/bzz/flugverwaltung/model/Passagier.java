@@ -1,5 +1,8 @@
 package ch.bzz.flugverwaltung.model;
 
+import ch.bzz.flugverwaltung.data.DataHandler;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.LocalDate;
 
 /**
@@ -7,107 +10,120 @@ import java.time.LocalDate;
  */
 
 public class Passagier {
+    @JsonIgnore
+    private Flug flug;
+
     private String passagierUUID;
     private String name;
     private String vorname;
     private LocalDate geburtsdatum;
     private String handynummer;
-    private Flug flug;
 
-    public Passagier(String passagierUUID, String name, String vorname, LocalDate geburtsdatum, String handynummer, Flug flug) {
-        this.passagierUUID = passagierUUID;
-        this.name = name;
-        this.vorname = vorname;
-        this.geburtsdatum = geburtsdatum;
-        this.handynummer = handynummer;
-        this.flug = flug;
+    /**
+     * gets the FlugUUID from the Flug-object
+     * @return
+     */
+    public String getFlugUUID() {
+        return getFlug().getFlugUUID();
     }
 
     /**
-     * bekommt passagierUUID
-     * @return wert der Variable passagierUUID
+     * creates a Flug-object without the passengerlist
+     * @param flugUUID
+     */
+    public void setFlugUUID(String flugUUID) {
+        setFlug( new Flug());
+        Flug flug = DataHandler.getInstance().readFlugByUUID(flugUUID);
+        getFlug().setFlugUUID(flugUUID);
+        getFlug().setFlug(flug.getFlug());
+
+    }
+
+    /**
+     * gets passagierUUID
+     * @return value of the varible passagierUUID
      */
     public String getPassagierUUID() {
         return passagierUUID;
     }
 
     /**
-     * setzt passagierUUID
+     * sets passagierUUID
      */
     public void setPassagierUUID(String passagierUUID) {
         this.passagierUUID = passagierUUID;
     }
 
     /**
-     * bekommt name
-     * @return wert der Variable name
+     * gets name
+     * @return value of the varible name
      */
     public String getName() {
         return name;
     }
 
     /**
-     * setzt name
+     * sets name
      */
     public void setName(String name) {
         this.name = name;
     }
 
     /**
-     * bekommt vorname
-     * @return wert der Variable vorname
+     * gets vorname
+     * @return value of the varible vorname
      */
     public String getVorname() {
         return vorname;
     }
 
     /**
-     * setzt vorname
+     * sets vorname
      */
     public void setVorname(String vorname) {
         this.vorname = vorname;
     }
 
     /**
-     * bekommt geburtsdatum
-     * @return wert der Variable geburtsdatum
+     * gets geburtsdatum
+     * @return value of the varible geburtsdatum
      */
     public LocalDate getGeburtsdatum() {
         return geburtsdatum;
     }
 
     /**
-     * setzt geburtsdatum
+     * sets geburtsdatum
      */
     public void setGeburtsdatum(LocalDate geburtsdatum) {
         this.geburtsdatum = geburtsdatum;
     }
 
     /**
-     * bekommt handynummer
-     * @return wert der Variable handynummer
+     * gets handynummer
+     * @return value of the varible handynummer
      */
     public String getHandynummer() {
         return handynummer;
     }
 
     /**
-     * setzt handynummer
+     * sets handynummer
      */
     public void setHandynummer(String handynummer) {
         this.handynummer = handynummer;
     }
 
     /**
-     * bekommt flug
-     * @return wert der Variable flug
+     * gets flug
+     * @return value of the varible flug
      */
     public Flug getFlug() {
         return flug;
     }
 
     /**
-     * setzt flug
+     * sets flug
      */
     public void setFlug(Flug flug) {
         this.flug = flug;
