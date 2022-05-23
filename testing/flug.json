@@ -1,0 +1,12 @@
+[
+    {
+        "flugUUID": "ecd26148-5341-43c6-81ed-f3f45959a12a",
+        "passagierListe": ["3d47c340-c712-402e-b400-0a23a9568c97","32e7c340-c712-402e-b400-0a23a9328c97"],
+        "flugzeugUUID": "3d47c340-c712-402e-b400-0a23a9568c93"
+    },
+    {
+        "flugUUID": "ecd26148-5341-43c6-81ed-f3f45959a12b",
+        "passagierListe": ["3d47c340-c712-402e-b400-0a23a9568c97","32e7c340-c712-402e-b400-0a23a9328c97"],
+        "flugzeugUUID": "3d47c340-c712-402e-b400-0a23a9568c93"
+    }
+]   

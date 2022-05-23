@@ -37,9 +37,16 @@ public class FlugzeugService {
             @QueryParam("uuid") String flugzeugUUID
     ){
         Flugzeug flugzeug = DataHandler.getInstance().readFlugzeugByUUID(flugzeugUUID);
-        return Response
-                .status(200)
-                .entity(flugzeug)
-                .build();
+        if(flugzeug != null){
+            return Response
+                    .status(200)
+                    .entity(flugzeug)
+                    .build();
+        }
+        else {
+            return Response
+                    .status(404)
+                    .build();
+        }
     }
 }

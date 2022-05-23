@@ -1,0 +1,14 @@
+[
+    {
+        "flugzeugUUID": "3d47c340-c712-402e-b400-0a23a9568c93",
+        "marke": "Swiss",
+        "modell": "Airbus 380",
+        "baujahr": 1983
+    },
+    {
+        "flugzeugUUID": "3d47c340-c712-402e-b400-0a23a9568c92",
+        "marke": "Easy Jet",
+        "modell": "Airbus 320",
+        "baujahr": 1999
+    }
+]

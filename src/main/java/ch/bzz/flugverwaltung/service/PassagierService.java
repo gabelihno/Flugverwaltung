@@ -38,9 +38,16 @@ public class PassagierService {
             @QueryParam("uuid") String passagierUUID
     ){
         Passagier passagier = DataHandler.getInstance().readPassagierByUUID(passagierUUID);
-        return Response
-                .status(200)
-                .entity(passagier)
-                .build();
+        if(passagier != null){
+            return Response
+                    .status(200)
+                    .entity(passagier)
+                    .build();
+        }
+        else {
+            return Response
+                    .status(404)
+                    .build();
+        }
     }
 }

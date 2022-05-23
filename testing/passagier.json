@@ -1,0 +1,30 @@
+[
+    {
+        "passagierUUID": "3d47c340-c712-402e-b400-0a23a9568c97",
+        "name": "Mueller",
+        "vorname": "Marco",
+        "geburtsdatum": "2001-02-22",
+        "handynummer": "+41 76 873 23 24"
+    },
+    {
+        "passagierUUID": "32e7c340-c712-402e-b400-0a23a9328c97",
+        "name": "Ramirez",
+        "vorname": "Pablo",
+        "geburtsdatum": "1993-08-18",
+        "handynummer": "+41 79 874 36 37"
+    },
+    {
+        "passagierUUID": "3247c340-d712-402e-b400-0a23a9368c97",
+        "name": "Haus",
+        "vorname": "Paula",
+        "geburtsdatum": "1999-02-01",
+        "handynummer": "+41 78 532 83 82"
+    },
+    {
+        "passagierUUID": "3247c340-c712-402e-b400-0a23a9368c97",
+        "name": "Locher",
+        "vorname": "Leart",
+        "geburtsdatum": "2004-05-12",
+        "handynummer": "+41 76 583 36 37"
+    }
+]
