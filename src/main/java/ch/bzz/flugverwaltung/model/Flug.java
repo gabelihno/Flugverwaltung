@@ -6,27 +6,26 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Ein Flug, welches einen Flugzeug besitzt und Passagiere
  */
-@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class,property = "flugUUID")
 public class Flug {
     private String flugUUID;
-    private List<String> passagierListe;
-    private Flugzeug flugzeug;
+    @JsonIgnore
+    private List<Passagier> passagierListe;
+    @JsonIgnore
+    private Flugzeug flugzeugUUID;
 
-    @JsonProperty("flugzeug")
-    public String getFlugzeugUUID() {
-        if (flugzeug != null){
-            return getFlugzeug().getFlugzeugUUID();
-        }
-        else {
-            return null;
+    @JsonProperty("passagierListe")
+    public void setPassagierListeByUUID(List<String> passagierListeUUIDS) {
+        setPassagierListe(new ArrayList<>());
+        for (String s : passagierListeUUIDS) {
+            this.passagierListe.add(DataHandler.getInstance().readPassagierByUUID(s));
         }
     }
-
 /**
  * gets flugUUID
  * @return value of the variable flugUUID
@@ -46,14 +45,14 @@ public class Flug {
  * gets passagierListe
  * @return value of the variable passagierListe
  */
-    public List<String> getPassagierListe() {
+    public List<Passagier> getPassagierListe() {
         return passagierListe;
     }
 
     /**
      * sets passagierListe
      */
-    public void setPassagierListe(List<String> passagierListe) {
+    public void setPassagierListe(List<Passagier> passagierListe) {
         this.passagierListe = passagierListe;
     }
 
@@ -61,15 +60,15 @@ public class Flug {
      * gets flugUUID
      * @return value of the variable flugUUID
      */
-    public Flugzeug getFlugzeug() {
-        return flugzeug;
+    public Flugzeug getFlugzeugUUID() {
+        return flugzeugUUID;
     }
 
     /**
      * sets flugUUID
      */
-    public void setFlugzeug(Flugzeug flugzeug) {
-        this.flugzeug = flugzeug;
+    public void setFlugzeugUUID(Flugzeug flugzeugUUID) {
+        this.flugzeugUUID = flugzeugUUID;
     }
 
 }

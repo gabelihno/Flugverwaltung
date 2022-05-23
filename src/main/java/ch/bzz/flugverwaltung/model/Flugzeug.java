@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 /**
  * Flugzeug, welches zu einem Flug gehört.
  */
-@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class,property = "flugzeugUUID")
 public class Flugzeug {
     private String flugzeugUUID;
     private String marke;

@@ -15,7 +15,6 @@ import java.time.LocalDate;
 /**
  * Passagier für den Flug
  */
-@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class,property = "passagierUUID")
 public class Passagier {
 
     private String passagierUUID;
@@ -48,7 +47,7 @@ public class Passagier {
         setFlug( new Flug());
         Flug flug = DataHandler.getInstance().readFlugByUUID(flugUUID);
         getFlug().setFlugUUID(flugUUID);
-        getFlug().setFlugzeug(flug.getFlugzeug());
+        getFlug().setFlugzeugUUID(flug.getFlugzeugUUID());
     }
 
     /**

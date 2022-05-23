@@ -1,6 +1,7 @@
 package ch.bzz.flugverwaltung.service;
 
 import ch.bzz.flugverwaltung.data.DataHandler;
+import ch.bzz.flugverwaltung.model.Flug;
 import ch.bzz.flugverwaltung.model.Passagier;
 
 import javax.ws.rs.GET;
@@ -11,11 +12,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-/**
- * services for reading, adding, changing and deleting passengers
- */
-@Path("passagier")
-public class PassagierService {
+@Path("flug")
+public class FlugService {
     /**
      * reads a list of all Passengers
      * @return
@@ -23,24 +21,24 @@ public class PassagierService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listPassagiers(){
-        List<Passagier> passagierList = DataHandler.getInstance().readAllPassengers();
+    public Response listFlugs(){
+        List<Flug> flugList = DataHandler.getInstance().readAllFlugs();
         return Response
                 .status(200)
-                .entity(passagierList)
+                .entity(flugList)
                 .build();
     }
 
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readPassenger(
-            @QueryParam("uuid") String passagierUUID
+    public Response readFlug(
+            @QueryParam("uuid") String flugUUID
     ){
-        Passagier passagier = DataHandler.getInstance().readPassagierByUUID(passagierUUID);
+        Flug flug = DataHandler.getInstance().readFlugByUUID(flugUUID);
         return Response
                 .status(200)
-                .entity(passagier)
+                .entity(flug)
                 .build();
     }
 }

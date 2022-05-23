@@ -1,7 +1,8 @@
 package ch.bzz.flugverwaltung.service;
 
 import ch.bzz.flugverwaltung.data.DataHandler;
-import ch.bzz.flugverwaltung.model.Passagier;
+import ch.bzz.flugverwaltung.model.Flug;
+import ch.bzz.flugverwaltung.model.Flugzeug;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -11,36 +12,34 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-/**
- * services for reading, adding, changing and deleting passengers
- */
-@Path("passagier")
-public class PassagierService {
+@Path("flugzeug")
+public class FlugzeugService {
     /**
      * reads a list of all Passengers
+     *
      * @return
      */
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listPassagiers(){
-        List<Passagier> passagierList = DataHandler.getInstance().readAllPassengers();
+    public Response listFlugzeugs() {
+        List<Flugzeug> flugzeugList = DataHandler.getInstance().readAllFlugzeugs();
         return Response
                 .status(200)
-                .entity(passagierList)
+                .entity(flugzeugList)
                 .build();
     }
 
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response readPassenger(
-            @QueryParam("uuid") String passagierUUID
+    public Response readFlugzeug(
+            @QueryParam("uuid") String flugzeugUUID
     ){
-        Passagier passagier = DataHandler.getInstance().readPassagierByUUID(passagierUUID);
+        Flugzeug flugzeug = DataHandler.getInstance().readFlugzeugByUUID(flugzeugUUID);
         return Response
                 .status(200)
-                .entity(passagier)
+                .entity(flugzeug)
                 .build();
     }
 }
