@@ -24,10 +24,10 @@ public class DataHandler {
     private DataHandler() {
         setFlugList(new ArrayList<>());
         readFlugJSON();
-        setPassagierList(new ArrayList<>());
-        readPassagierJSON();
         setFlugzeugList(new ArrayList<>());
         readFlugzeugJSON();
+        setPassagierList(new ArrayList<>());
+        readPassagierJSON();
     }
 
     /**

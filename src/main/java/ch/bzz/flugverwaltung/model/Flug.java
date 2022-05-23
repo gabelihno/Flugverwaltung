@@ -1,16 +1,31 @@
 package ch.bzz.flugverwaltung.model;
 
+import ch.bzz.flugverwaltung.data.DataHandler;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import java.util.List;
 
 /**
  * Ein Flug, welches einen Flugzeug besitzt und Passagiere
  */
-
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class,property = "flugUUID")
 public class Flug {
     private String flugUUID;
-    private List<Passagier> passagierListe;
+    private List<String> passagierListe;
     private Flugzeug flugzeug;
-    private Flug flug;
+
+    @JsonProperty("flugzeug")
+    public String getFlugzeugUUID() {
+        if (flugzeug != null){
+            return getFlugzeug().getFlugzeugUUID();
+        }
+        else {
+            return null;
+        }
+    }
 
 /**
  * gets flugUUID
@@ -31,14 +46,14 @@ public class Flug {
  * gets passagierListe
  * @return value of the variable passagierListe
  */
-    public List<Passagier> getPassagierListe() {
+    public List<String> getPassagierListe() {
         return passagierListe;
     }
 
     /**
      * sets passagierListe
      */
-    public void setPassagierListe(List<Passagier> passagierListe) {
+    public void setPassagierListe(List<String> passagierListe) {
         this.passagierListe = passagierListe;
     }
 
@@ -57,20 +72,6 @@ public class Flug {
         this.flugzeug = flugzeug;
     }
 
-    /**
-     * gets flug
-     * @return value of the variable flug
-     */
-    public Flug getFlug() {
-        return flug;
-    }
-
-    /**
-     * sets flug
-     */
-    public void setFlug(Flug flug) {
-        this.flug = flug;
-    }
 }
 
 

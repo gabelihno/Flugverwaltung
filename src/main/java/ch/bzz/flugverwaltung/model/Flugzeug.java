@@ -1,9 +1,13 @@
 package ch.bzz.flugverwaltung.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerator;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 /**
  * Flugzeug, welches zu einem Flug gehört.
  */
-
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class,property = "flugzeugUUID")
 public class Flugzeug {
     private String flugzeugUUID;
     private String marke;

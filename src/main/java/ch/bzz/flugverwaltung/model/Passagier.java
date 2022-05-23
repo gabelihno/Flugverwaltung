@@ -1,30 +1,43 @@
 package ch.bzz.flugverwaltung.model;
 
 import ch.bzz.flugverwaltung.data.DataHandler;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import java.time.LocalDate;
 
 /**
  * Passagier für den Flug
  */
-
+@JsonIdentityInfo(generator = ObjectIdGenerators.UUIDGenerator.class,property = "passagierUUID")
 public class Passagier {
-    @JsonIgnore
-    private Flug flug;
 
     private String passagierUUID;
     private String name;
     private String vorname;
-    private LocalDate geburtsdatum;
+    private String geburtsdatum;
     private String handynummer;
+    @JsonIgnore
+    private Flug flug;
 
     /**
      * gets the FlugUUID from the Flug-object
      * @return
      */
+    @JsonProperty("flug")
     public String getFlugUUID() {
-        return getFlug().getFlugUUID();
+        if(flug != null){
+            return getFlug().getFlugUUID();
+        }
+        else {
+            return null;
+        }
     }
 
     /**
@@ -35,8 +48,7 @@ public class Passagier {
         setFlug( new Flug());
         Flug flug = DataHandler.getInstance().readFlugByUUID(flugUUID);
         getFlug().setFlugUUID(flugUUID);
-        getFlug().setFlug(flug.getFlug());
-
+        getFlug().setFlugzeug(flug.getFlugzeug());
     }
 
     /**
@@ -88,14 +100,14 @@ public class Passagier {
      * gets geburtsdatum
      * @return value of the varible geburtsdatum
      */
-    public LocalDate getGeburtsdatum() {
+    public String getGeburtsdatum() {
         return geburtsdatum;
     }
 
     /**
      * sets geburtsdatum
      */
-    public void setGeburtsdatum(LocalDate geburtsdatum) {
+    public void setGeburtsdatum(String geburtsdatum) {
         this.geburtsdatum = geburtsdatum;
     }
 
