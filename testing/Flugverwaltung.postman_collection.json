@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "35084ba5-9d86-45b0-93fe-df39acb0d87c",
+		"name": "Flugverwaltung",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "0.1 Testservice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/test/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"test",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.0 list all passengers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.1 read passenger by UUID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=3d47c340-c712-402e-b400-0a23a9568c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3d47c340-c712-402e-b400-0a23a9568c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "1.2 read passenger by UUID not found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=5e47c340-c712-402e-b400-0a23a9568c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "5e47c340-c712-402e-b400-0a23a9568c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.0 list all flugs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.1 read flug by UUID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd26148-5341-43c6-81ed-f3f45959a12a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "ecd26148-5341-43c6-81ed-f3f45959a12a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.2 read flug by UUID not found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd36148-5341-43c6-81ed-f3f45959a12a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "ecd36148-5341-43c6-81ed-f3f45959a12a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.0 list all flugzeugs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.1 read flugzeug by UUID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/read?uuid=3d47c340-c712-402e-b400-0a23a9568c93",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3d47c340-c712-402e-b400-0a23a9568c93"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3.2 read flugzeug by UUID not found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/read?uuid=3d43c340-c712-402e-b400-0a23a9568c93",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3d43c340-c712-402e-b400-0a23a9568c93"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,328 @@
+{
+	"id": "bf054636-e8e6-4333-9188-20ac3490e47d",
+	"name": "Flugverwaltung",
+	"timestamp": "2022-05-23T19:36:48.845Z",
+	"collection_id": "35084ba5-9d86-45b0-93fe-df39acb0d87c",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 10,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "a89bf145-e796-4ebd-bd4e-076b8f1ae00a",
+			"name": "0.1 Testservice",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/test/test",
+			"time": 96,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				96
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "05a6be88-5e8c-4691-b8c8-d96752523c5d",
+			"name": "1.0 list all passengers",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/list",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "d2ffce5e-fe99-4c17-b40e-e83b560a5c47",
+			"name": "1.1 read passenger by UUID",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=3d47c340-c712-402e-b400-0a23a9568c97",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "46d7a9e2-20dd-4d60-b72d-68001a5335a5",
+			"name": "1.2 read passenger by UUID not found",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=5e47c340-c712-402e-b400-0a23a9568c97",
+			"time": 6,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "e29bffb6-59fa-4623-abdd-50447bbbca64",
+			"name": "2.0 list all flugs",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/list",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "d1be8431-ee24-4a8c-a58b-604a6e0d6a79",
+			"name": "2.1 read flug by UUID",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd26148-5341-43c6-81ed-f3f45959a12a",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "61aef8bd-9cd2-4016-b0a3-7a80befb67ec",
+			"name": "2.2 read flug by UUID not found",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd36148-5341-43c6-81ed-f3f45959a12a",
+			"time": 7,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "1d17923e-2131-490f-a3f3-e533d7252cb0",
+			"name": "3.0 list all flugzeugs",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/list",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "862577c3-ce56-4bf9-9053-9d57f96db8ec",
+			"name": "3.1 read flugzeug by UUID",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/read?uuid=3d47c340-c712-402e-b400-0a23a9568c93",
+			"time": 3,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		},
+		{
+			"id": "9d6c8205-7b18-4a13-890a-c278ffccf9bf",
+			"name": "3.2 read flugzeug by UUID not found",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/read?uuid=3d43c340-c712-402e-b400-0a23a9568c93",
+			"time": 6,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status test": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 161,
+	"collection": {
+		"requests": [
+			{
+				"id": "a89bf145-e796-4ebd-bd4e-076b8f1ae00a",
+				"method": "GET"
+			},
+			{
+				"id": "05a6be88-5e8c-4691-b8c8-d96752523c5d",
+				"method": "GET"
+			},
+			{
+				"id": "d2ffce5e-fe99-4c17-b40e-e83b560a5c47",
+				"method": "GET"
+			},
+			{
+				"id": "46d7a9e2-20dd-4d60-b72d-68001a5335a5",
+				"method": "GET"
+			},
+			{
+				"id": "e29bffb6-59fa-4623-abdd-50447bbbca64",
+				"method": "GET"
+			},
+			{
+				"id": "d1be8431-ee24-4a8c-a58b-604a6e0d6a79",
+				"method": "GET"
+			},
+			{
+				"id": "61aef8bd-9cd2-4016-b0a3-7a80befb67ec",
+				"method": "GET"
+			},
+			{
+				"id": "1d17923e-2131-490f-a3f3-e533d7252cb0",
+				"method": "GET"
+			},
+			{
+				"id": "862577c3-ce56-4bf9-9053-9d57f96db8ec",
+				"method": "GET"
+			},
+			{
+				"id": "9d6c8205-7b18-4a13-890a-c278ffccf9bf",
+				"method": "GET"
+			}
+		]
+	}
+}
