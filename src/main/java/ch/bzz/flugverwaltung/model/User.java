@@ -1,5 +1,8 @@
 package ch.bzz.flugverwaltung.model;
 
+/**
+ * model class for user
+ */
 public class User {
     private String userUUID;
     private String userName;

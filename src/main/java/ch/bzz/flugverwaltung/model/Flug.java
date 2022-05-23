@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Ein Flug, welches einen Flugzeug besitzt und Passagiere
+ * model class flug
  */
 public class Flug {
     private String flugUUID;

@@ -12,6 +12,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * reads data from the json files
+ */
+
 public class DataHandler {
     private static DataHandler instance = null;
     private List<Passagier> passagierList;

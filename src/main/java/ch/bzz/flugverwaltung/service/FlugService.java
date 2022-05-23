@@ -12,10 +12,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+/**
+ * services for reading, adding, changing and deleting flugs
+ */
 @Path("flug")
 public class FlugService {
     /**
-     * reads a list of all Passengers
+     * reads a list of all flugs
      * @return
      */
     @GET
@@ -29,6 +32,10 @@ public class FlugService {
                 .build();
     }
 
+    /**
+     * reads a flug by UUID
+     * @return
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)

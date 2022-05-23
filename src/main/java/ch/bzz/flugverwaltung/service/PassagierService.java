@@ -31,6 +31,11 @@ public class PassagierService {
                 .build();
     }
 
+
+    /**
+     * reads a passenger by UUID
+     * @return
+     */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)

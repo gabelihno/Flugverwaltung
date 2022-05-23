@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerator;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 /**
- * Flugzeug, welches zu einem Flug gehört.
+ * model class flugzeug
  */
 public class Flugzeug {
     private String flugzeugUUID;

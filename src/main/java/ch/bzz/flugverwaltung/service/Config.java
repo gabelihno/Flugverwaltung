@@ -24,7 +24,7 @@ public class Config extends Application {
     private static Properties properties = null;
 
     /**
-     * definiert alle Provider Klassen
+     * defines all provider classes
      *
      * @return set von Klassen
      */
@@ -39,7 +39,7 @@ public class Config extends Application {
     }
 
     /**
-     * Bekommt den Wert einer Property
+     * gets the value of the property
      *
      * @param property das Schlüssel der Property
      */
@@ -54,7 +54,7 @@ public class Config extends Application {
     }
 
     /**
-     * Liest die Properties Files
+     * reads the properties files
      */
     private static void readProperties() {
 
@@ -70,7 +70,7 @@ public class Config extends Application {
     }
 
     /**
-     * Setzt die Properties
+     * sets the properties
      *
      * @param properties the value to set
      */

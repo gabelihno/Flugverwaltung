@@ -13,7 +13,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import java.time.LocalDate;
 
 /**
- * Passagier für den Flug
+ * model class passagier
  */
 public class Passagier {
 
