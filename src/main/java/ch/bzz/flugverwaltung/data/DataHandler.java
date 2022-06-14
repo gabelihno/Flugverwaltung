@@ -20,7 +20,6 @@ import java.util.List;
  */
 
 public final class DataHandler {
-    private static DataHandler instance = null;
     private static List<Passagier> passagierList;
     private static List<Flug> flugList;
     private static List<Flugzeug> flugzeugList;
@@ -57,28 +56,38 @@ public final class DataHandler {
     }
 
     /**
-     * reads all flugzeugs
-     * @return list of flugzeugs
+     * inserts a new book into the bookList
+     *
+     * @param passagier the book to be saved
      */
-    public static List<Flugzeug> readAllFlugzeugs() {
-        return getFlugzeugList();
+    public static void insertPassagier(Passagier passagier) {
+        getPassagierList().add(passagier);
+        writePassagierJSON();
     }
 
     /**
-     * reads a Passenger by its uuid
-     * @param flugzeugUUID
-     * @return the Flugzeug (null=not found)
+     * updates the bookList
      */
-    public static Flugzeug readFlugzeugByUUID(String flugzeugUUID) {
-        Flugzeug flugzeug = null;
-        for (Flugzeug entry : getFlugzeugList()) {
-            if (entry.getFlugzeugUUID().equals(flugzeugUUID)) {
-                flugzeug = entry;
-            }
-        }
-        return flugzeug;
+    public static void updatePassagier() {
+        writePassagierJSON();
     }
 
+
+    /**
+     * deletes a book identified by the bookUUID
+     * @param passagierUUID the key
+     * @return  success=true/false
+     */
+    public boolean deletePassagier(String passagierUUID){
+        Passagier passagier = readPassagierByUUID(passagierUUID);
+        if (passagier != null) {
+            getPassagierList().remove(passagier);
+            writePassagierJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /**
      * reads all Publishers
@@ -102,6 +111,116 @@ public final class DataHandler {
     }
 
     /**
+     * inserts a new book into the bookList
+     *
+     * @param flug the book to be saved
+     */
+    public static void insertFlug(Flug flug) {
+        getFlugList().add(flug);
+        writeFlugJSON();
+    }
+
+    /**
+     * updates the flugList
+     */
+    public static void updateFlug() {
+        writeFlugJSON();
+    }
+
+
+    /**
+     * deletes a book identified by the bookUUID
+     * @param flugUUID the key
+     * @return  success=true/false
+     */
+    public boolean deleteFlug(String flugUUID){
+        Flug flug = readFlugByUUID(flugUUID);
+        if (flug != null) {
+            getFlugList().remove(flug);
+            writeFlugJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * reads all flugzeugs
+     * @return list of flugzeugs
+     */
+    public static List<Flugzeug> readAllFlugzeugs() {
+        return getFlugzeugList();
+    }
+
+    /**
+     * reads a Passenger by its uuid
+     * @param flugzeugUUID
+     * @return the Flugzeug (null=not found)
+     */
+    public static Flugzeug readFlugzeugByUUID(String flugzeugUUID) {
+        Flugzeug flugzeug = null;
+        for (Flugzeug entry : getFlugzeugList()) {
+            if (entry.getFlugzeugUUID().equals(flugzeugUUID)) {
+                flugzeug = entry;
+            }
+        }
+        return flugzeug;
+    }
+
+    /**
+     * inserts a new book into the bookList
+     *
+     * @param flugzeug the book to be saved
+     */
+    public static void insertFlugzeug(Flugzeug flugzeug) {
+        getFlugzeugList().add(flugzeug);
+        writeFlugzeugJSON();;
+    }
+
+    /**
+     * updates the flugzeugList
+     */
+    public static void updateFlugzeug() {
+        writeFlugzeugJSON();;
+    }
+
+
+    /**
+     * deletes a book identified by the bookUUID
+     * @param flugzeugUUID the key
+     * @return  success=true/false
+     */
+    public boolean deleteFlugzeug(String flugzeugUUID){
+        Flugzeug flugzeug = readFlugzeugByUUID(flugzeugUUID);
+        if (flugzeug != null) {
+            getFlugzeugList().remove(flugzeug);
+            writeFlugzeugJSON();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * writes the passagierList to the JSON-file
+     */
+    private static void writePassagierJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("passagierJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getPassagierList());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
      * reads the passengers from the JSON-file
      */
     private static void readPassagierJSON() {
@@ -115,6 +234,25 @@ public final class DataHandler {
             for (Passagier passagier : passagiers) {
                 getPassagierList().add(passagier);
             }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * writes the flugList to the JSON-file
+     */
+    private static void writeFlugJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("passagierJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getFlugList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -135,6 +273,25 @@ public final class DataHandler {
             for (Flug flug : flugs) {
                 getFlugList().add(flug);
             }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    /**
+     * writes the flugzeugList to the JSON-file
+     */
+    private static void writeFlugzeugJSON() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectWriter objectWriter = objectMapper.writer(new DefaultPrettyPrinter());
+        FileOutputStream fileOutputStream = null;
+        Writer fileWriter;
+
+        String bookPath = Config.getProperty("passagierJSON");
+        try {
+            fileOutputStream = new FileOutputStream(bookPath);
+            fileWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, StandardCharsets.UTF_8));
+            objectWriter.writeValue(fileWriter, getFlugzeugList());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
