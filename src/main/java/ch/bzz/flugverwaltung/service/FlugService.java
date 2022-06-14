@@ -42,18 +42,14 @@ public class FlugService {
     public Response readFlug(
             @QueryParam("uuid") String flugUUID
     ){
+        int httpStatus = 200;
         Flug flug = DataHandler.getInstance().readFlugByUUID(flugUUID);
-        if(flug != null){
-            return Response
-                    .status(200)
-                    .entity(flug)
-                    .build();
+        if(flug == null) {
+            httpStatus = 410;
         }
-        else {
-            return Response
-                    .status(404)
-                    .build();
-        }
-
+        return Response
+                .status(httpStatus)
+                .entity(flug)
+                .build();
     }
 }

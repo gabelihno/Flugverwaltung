@@ -43,17 +43,14 @@ public class FlugzeugService {
     public Response readFlugzeug(
             @QueryParam("uuid") String flugzeugUUID
     ){
+        int httpStatus = 200;
         Flugzeug flugzeug = DataHandler.getInstance().readFlugzeugByUUID(flugzeugUUID);
-        if(flugzeug != null){
-            return Response
-                    .status(200)
-                    .entity(flugzeug)
-                    .build();
+        if (flugzeug == null){
+            httpStatus = 410;
         }
-        else {
-            return Response
-                    .status(404)
-                    .build();
-        }
+        return Response
+                .status(httpStatus)
+                .entity(flugzeug)
+                .build();
     }
 }

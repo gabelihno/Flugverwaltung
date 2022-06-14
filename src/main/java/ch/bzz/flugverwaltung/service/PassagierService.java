@@ -42,17 +42,14 @@ public class PassagierService {
     public Response readPassenger(
             @QueryParam("uuid") String passagierUUID
     ){
+        int httpStatus = 200;
         Passagier passagier = DataHandler.getInstance().readPassagierByUUID(passagierUUID);
-        if(passagier != null){
+        if(passagier == null) {
+            httpStatus = 410;
+        }
             return Response
-                    .status(200)
+                    .status(httpStatus)
                     .entity(passagier)
                     .build();
-        }
-        else {
-            return Response
-                    .status(404)
-                    .build();
-        }
     }
 }
