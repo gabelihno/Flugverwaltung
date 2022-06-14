@@ -4,9 +4,12 @@ import ch.bzz.flugverwaltung.model.Flug;
 import ch.bzz.flugverwaltung.model.Flugzeug;
 import ch.bzz.flugverwaltung.model.Passagier;
 import ch.bzz.flugverwaltung.service.Config;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -16,32 +19,16 @@ import java.util.List;
  * reads data from the json files
  */
 
-public class DataHandler {
+public final class DataHandler {
     private static DataHandler instance = null;
-    private List<Passagier> passagierList;
-    private List<Flug> flugList;
-    private List<Flugzeug> flugzeugList;
+    private static List<Passagier> passagierList;
+    private static List<Flug> flugList;
+    private static List<Flugzeug> flugzeugList;
 
     /**
      * private constructor defeats instantiation
      */
     private DataHandler() {
-        setFlugList(new ArrayList<>());
-        readFlugJSON();
-        setFlugzeugList(new ArrayList<>());
-        readFlugzeugJSON();
-        setPassagierList(new ArrayList<>());
-        readPassagierJSON();
-    }
-
-    /**
-     * gets the only instance of this class
-     * @return
-     */
-    public static DataHandler getInstance() {
-        if (instance == null)
-            instance = new DataHandler();
-        return instance;
     }
 
 
@@ -49,7 +36,7 @@ public class DataHandler {
      * reads all passengers
      * @return list of passengers
      */
-    public List<Passagier> readAllPassengers() {
+    public static List<Passagier> readAllPassengers() {
         return getPassagierList();
     }
 
@@ -58,7 +45,8 @@ public class DataHandler {
      * @param PassagierUUID
      * @return the Passagier (null=not found)
      */
-    public Passagier readPassagierByUUID(String PassagierUUID) {
+
+    public static Passagier readPassagierByUUID(String PassagierUUID) {
         Passagier passagier = null;
         for (Passagier entry : getPassagierList()) {
             if (entry.getPassagierUUID().equals(PassagierUUID)) {
@@ -72,7 +60,7 @@ public class DataHandler {
      * reads all flugzeugs
      * @return list of flugzeugs
      */
-    public List<Flugzeug> readAllFlugzeugs() {
+    public static List<Flugzeug> readAllFlugzeugs() {
         return getFlugzeugList();
     }
 
@@ -81,7 +69,7 @@ public class DataHandler {
      * @param flugzeugUUID
      * @return the Flugzeug (null=not found)
      */
-    public Flugzeug readFlugzeugByUUID(String flugzeugUUID) {
+    public static Flugzeug readFlugzeugByUUID(String flugzeugUUID) {
         Flugzeug flugzeug = null;
         for (Flugzeug entry : getFlugzeugList()) {
             if (entry.getFlugzeugUUID().equals(flugzeugUUID)) {
@@ -96,17 +84,14 @@ public class DataHandler {
      * reads all Publishers
      * @return list of publishers
      */
-    public List<Flug> readAllFlugs() {
-
-        return getFlugList();
-    }
+    public static List<Flug> readAllFlugs() { return getFlugList(); }
 
     /**
      * reads a Flug by its uuid
      * @param flugUUID
      * @return the Flug (null=not found)
      */
-    public Flug readFlugByUUID(String flugUUID) {
+    public static Flug readFlugByUUID(String flugUUID) {
         Flug flug = null;
         for (Flug entry : getFlugList()) {
             if (entry.getFlugUUID().equals(flugUUID)) {
@@ -119,7 +104,7 @@ public class DataHandler {
     /**
      * reads the passengers from the JSON-file
      */
-    private void readPassagierJSON() {
+    private static void readPassagierJSON() {
         try {
             String path = Config.getProperty("passagierJSON");
             byte[] jsonData = Files.readAllBytes(
@@ -138,7 +123,7 @@ public class DataHandler {
     /**
      * reads the flyies from the JSON-file
      */
-    private void readFlugJSON() {
+    private static void readFlugJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -158,7 +143,7 @@ public class DataHandler {
     /**
      * reads the flugzeugs from the JSON-file
      */
-    private void readFlugzeugJSON() {
+    private static void readFlugzeugJSON() {
         try {
             byte[] jsonData = Files.readAllBytes(
                     Paths.get(
@@ -180,7 +165,11 @@ public class DataHandler {
      *
      * @return value of passagierList
      */
-    private List<Passagier> getPassagierList() {
+    private static List<Passagier> getPassagierList() {
+        if (passagierList == null) {
+            setPassagierList(new ArrayList<>());
+            readPassagierJSON();
+        }
         return passagierList;
     }
 
@@ -189,8 +178,8 @@ public class DataHandler {
      *
      * @param passagierList the value to set
      */
-    private void setPassagierList(List<Passagier> passagierList) {
-        this.passagierList = passagierList;
+    private static void setPassagierList(List<Passagier> passagierList) {
+        DataHandler.passagierList = passagierList;
     }
 
     /**
@@ -198,7 +187,11 @@ public class DataHandler {
      *
      * @return value of flugList
      */
-    private List<Flug> getFlugList() {
+    private static List<Flug> getFlugList() {
+        if (flugList == null) {
+            setFlugList(new ArrayList<>());
+            readFlugJSON();
+        }
         return flugList;
     }
 
@@ -207,8 +200,8 @@ public class DataHandler {
      *
      * @param flugList the value to set
      */
-    private void setFlugList(List<Flug> flugList) {
-        this.flugList = flugList;
+    private static void setFlugList(List<Flug> flugList) {
+        DataHandler.flugList = flugList;
     }
 
     /**
@@ -216,7 +209,11 @@ public class DataHandler {
      *
      * @return value of flugzeugList
      */
-    private List<Flugzeug> getFlugzeugList() {
+    private static List<Flugzeug> getFlugzeugList() {
+        if (flugzeugList == null) {
+            setFlugzeugList(new ArrayList<>());
+            readFlugzeugJSON();
+        }
         return flugzeugList;
     }
 
@@ -225,10 +222,8 @@ public class DataHandler {
      *
      * @param flugzeugList the value to set
      */
-    private void setFlugzeugList(List<Flugzeug> flugzeugList) {
-        this.flugzeugList = flugzeugList;
+    private static void setFlugzeugList(List<Flugzeug> flugzeugList) {
+        DataHandler.flugzeugList = flugzeugList;
     }
-
-
 
 }

@@ -25,7 +25,7 @@ public class FlugService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listFlugs(){
-        List<Flug> flugList = DataHandler.getInstance().readAllFlugs();
+        List<Flug> flugList = DataHandler.readAllFlugs();
         return Response
                 .status(200)
                 .entity(flugList)
@@ -43,7 +43,7 @@ public class FlugService {
             @QueryParam("uuid") String flugUUID
     ){
         int httpStatus = 200;
-        Flug flug = DataHandler.getInstance().readFlugByUUID(flugUUID);
+        Flug flug = DataHandler.readFlugByUUID(flugUUID);
         if(flug == null) {
             httpStatus = 410;
         }

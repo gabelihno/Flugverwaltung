@@ -3,10 +3,7 @@ package ch.bzz.flugverwaltung.service;
 import ch.bzz.flugverwaltung.data.DataHandler;
 import ch.bzz.flugverwaltung.model.Passagier;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
@@ -24,7 +21,7 @@ public class PassagierService {
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
     public Response listPassagiers(){
-        List<Passagier> passagierList = DataHandler.getInstance().readAllPassengers();
+        List<Passagier> passagierList = DataHandler.readAllPassengers();
         return Response
                 .status(200)
                 .entity(passagierList)
@@ -43,7 +40,7 @@ public class PassagierService {
             @QueryParam("uuid") String passagierUUID
     ){
         int httpStatus = 200;
-        Passagier passagier = DataHandler.getInstance().readPassagierByUUID(passagierUUID);
+        Passagier passagier = DataHandler.readPassagierByUUID(passagierUUID);
         if(passagier == null) {
             httpStatus = 410;
         }
@@ -52,4 +49,11 @@ public class PassagierService {
                     .entity(passagier)
                     .build();
     }
+
+//    @DELETE
+//    @Path("delete")
+//    @Produces(MediaType.TEXT_PLAIN)
+//    public Response deletePassenger(
+//
+//    )
 }

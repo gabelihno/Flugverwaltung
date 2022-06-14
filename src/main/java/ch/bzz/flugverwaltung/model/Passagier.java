@@ -39,7 +39,7 @@ public class Passagier {
      */
     public void setFlugUUID(String flugUUID) {
         setFlug( new Flug());
-        Flug flug = DataHandler.getInstance().readFlugByUUID(flugUUID);
+        Flug flug = DataHandler.readFlugByUUID(flugUUID);
         getFlug().setFlugUUID(flugUUID);
         getFlug().setFlugzeugUUID(flug.getFlugzeugUUID());
     }

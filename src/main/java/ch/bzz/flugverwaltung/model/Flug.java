@@ -23,7 +23,7 @@ public class Flug {
     public void setPassagierListeByUUID(List<String> passagierListeUUIDS) {
         setPassagierListe(new ArrayList<>());
         for (String s : passagierListeUUIDS) {
-            this.passagierListe.add(DataHandler.getInstance().readPassagierByUUID(s));
+            this.passagierListe.add(DataHandler.readPassagierByUUID(s));
         }
     }
 /**
