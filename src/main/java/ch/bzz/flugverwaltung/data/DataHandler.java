@@ -78,7 +78,7 @@ public final class DataHandler {
      * @param passagierUUID the key
      * @return  success=true/false
      */
-    public boolean deletePassagier(String passagierUUID){
+    public static boolean deletePassagier(String passagierUUID){
         Passagier passagier = readPassagierByUUID(passagierUUID);
         if (passagier != null) {
             getPassagierList().remove(passagier);
@@ -133,7 +133,7 @@ public final class DataHandler {
      * @param flugUUID the key
      * @return  success=true/false
      */
-    public boolean deleteFlug(String flugUUID){
+    public static boolean deleteFlug(String flugUUID){
         Flug flug = readFlugByUUID(flugUUID);
         if (flug != null) {
             getFlugList().remove(flug);
@@ -190,7 +190,7 @@ public final class DataHandler {
      * @param flugzeugUUID the key
      * @return  success=true/false
      */
-    public boolean deleteFlugzeug(String flugzeugUUID){
+    public static boolean deleteFlugzeug(String flugzeugUUID){
         Flugzeug flugzeug = readFlugzeugByUUID(flugzeugUUID);
         if (flugzeug != null) {
             getFlugzeugList().remove(flugzeug);
