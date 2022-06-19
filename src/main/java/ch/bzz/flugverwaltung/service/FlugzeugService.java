@@ -40,10 +40,10 @@ public class FlugzeugService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readFlugzeug(
-            @QueryParam("uuid") String planeUUID
+            @QueryParam("uuid") String flugzeugUUID
     ){
         int httpStatus = 200;
-        Flugzeug flugzeug = DataHandler.readFlugzeugByUUID(planeUUID);
+        Flugzeug flugzeug = DataHandler.readFlugzeugByUUID(flugzeugUUID);
         if (flugzeug == null){
             httpStatus = 410;
         }
@@ -55,24 +55,24 @@ public class FlugzeugService {
 
     /**
      * insert a new passenger
-     * @param airline the first name
-     * @param model the birthday
-     * @param constructionYear the phonenumber
+     * @param marke the first name
+     * @param modell the birthday
+     * @param baujahr the phonenumber
      * @return Response
      */
     @PUT
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertFlugzeug(
-            @FormParam("airline") String airline,
-            @FormParam("model") String model,
-            @FormParam("constructionYear") Integer constructionYear
+            @FormParam("marke") String marke,
+            @FormParam("modell") String modell,
+            @FormParam("baujahr") Integer baujahr
     ){
         Flugzeug flugzeug = new Flugzeug();
-        flugzeug.setplaneUUID(UUID.randomUUID().toString());
-        flugzeug.setmodel(model);
-        flugzeug.setairline(airline);
-        flugzeug.setconstructionYear(constructionYear);
+        flugzeug.setFlugzeugUUID(UUID.randomUUID().toString());
+        flugzeug.setModell(modell);
+        flugzeug.setMarke(marke);
+        flugzeug.setBaujahr(baujahr);
 
         DataHandler.insertFlugzeug(flugzeug);
         return Response
@@ -83,27 +83,27 @@ public class FlugzeugService {
 
     /**
      * updates a passenger
-     * @param planeUUID the key
-     * @param airline the name
-     * @param model the first name
-     * @param constructionYear the birthday
+     * @param flugzeugUUID the key
+     * @param marke the name
+     * @param modell the first name
+     * @param baujahr the birthday
      * @return Response
      */
     @POST
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertPassenger(
-            @FormParam("planeUUID") String planeUUID,
-            @FormParam("airline") String airline,
-            @FormParam("model") String model,
-            @FormParam("constructionYear") Integer constructionYear
+            @FormParam("flugzeugUUID") String flugzeugUUID,
+            @FormParam("marke") String marke,
+            @FormParam("modell") String modell,
+            @FormParam("baujahr") Integer baujahr
     ){
         int httpStatus = 200;
-        Flugzeug flugzeug = DataHandler.readFlugzeugByUUID(planeUUID);
+        Flugzeug flugzeug = DataHandler.readFlugzeugByUUID(flugzeugUUID);
         if(flugzeug != null) {
-            flugzeug.setairline(airline);
-            flugzeug.setmodel(model);
-            flugzeug.setconstructionYear(constructionYear);
+            flugzeug.setMarke(marke);
+            flugzeug.setModell(modell);
+            flugzeug.setBaujahr(baujahr);
 
             DataHandler.updateFlugzeug();
         }
@@ -118,17 +118,17 @@ public class FlugzeugService {
 
     /**
      * deletes a passenger by UUID
-     * @param planeUUID the key
+     * @param flugzeugUUID the key
      * @return Response
      */
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteFlugzeug(
-            @QueryParam("uuid") String planeUUID
+            @QueryParam("uuid") String flugzeugUUID
     ){
         int httpStatus = 200;
-        if(!DataHandler.deleteFlugzeug(planeUUID)){
+        if(!DataHandler.deleteFlugzeug(flugzeugUUID)){
             httpStatus = 410;
         }
         return Response
