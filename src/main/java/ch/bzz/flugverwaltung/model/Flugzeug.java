@@ -8,68 +8,68 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
  * model class flugzeug
  */
 public class Flugzeug {
-    private String flugzeugUUID;
-    private String marke;
-    private String modell;
-    private Integer baujahr;
+    private String planeUUID;
+    private String airline;
+    private String model;
+    private Integer constructionYear;
 
     /**
-     * gets flugzeugUUID
-     * @return value of the varible flugzeugUUID
+     * gets planeUUID
+     * @return value of the varible planeUUID
      */
-    public String getFlugzeugUUID() {
-        return flugzeugUUID;
+    public String getplaneUUID() {
+        return planeUUID;
     }
 
     /**
-     * sets flugzeugUUID
+     * sets planeUUID
      */
-    public void setFlugzeugUUID(String flugzeugUUID) {
-        this.flugzeugUUID = flugzeugUUID;
+    public void setplaneUUID(String planeUUID) {
+        this.planeUUID = planeUUID;
     }
 
     /**
-     * gets marke
-     * @return value of the varible marke
+     * gets airline
+     * @return value of the varible airline
      */
-    public String getMarke() {
-        return marke;
+    public String getairline() {
+        return airline;
     }
 
     /**
-     * sets marke
+     * sets airline
      */
-    public void setMarke(String marke) {
-        this.marke = marke;
+    public void setairline(String airline) {
+        this.airline = airline;
     }
 
     /**
-     * gets modell
-     * @return value of the varible modell
+     * gets model
+     * @return value of the varible model
      */
-    public String getModell() {
-        return modell;
+    public String getmodel() {
+        return model;
     }
 
     /**
-     * sets modell
+     * sets model
      */
-    public void setModell(String modell) {
-        this.modell = modell;
+    public void setmodel(String model) {
+        this.model = model;
     }
 
     /**
-     * gets baujahr
-     * @return value of the varible baujahr
+     * gets constructionYear
+     * @return value of the varible constructionYear
      */
-    public Integer getBaujahr() {
-        return baujahr;
+    public Integer getconstructionYear() {
+        return constructionYear;
     }
 
     /**
-     * sets baujahr
+     * sets constructionYear
      */
-    public void setBaujahr(Integer baujahr) {
-        this.baujahr = baujahr;
+    public void setconstructionYear(Integer constructionYear) {
+        this.constructionYear = constructionYear;
     }
 }

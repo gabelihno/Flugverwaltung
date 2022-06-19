@@ -51,68 +51,56 @@ public class FlugService {
                 .entity(flug)
                 .build();
     }
-//    /**
-//     * insert a new passenger
-//     * @param passagierListe the name
-//     * @param flugzeugUUID the first name
-//     * @return Response
-//     */
-//    @PUT
-//    @Path("create")
-//    @Produces(MediaType.TEXT_PLAIN)
-//    public Response insertFlug(
-//            @FormParam("passagierListe") List<Passagier> passagierListe,
-//            @FormParam("flugzeugUUID") Flugzeug flugzeugUUID
-//    ){
-//        Flug flug = new Flug();
-//        flug.setFlugUUID(UUID.randomUUID().toString());
-//        flug.setPassagierListe(passagierListe);
-//        flug.setFlugzeugUUID(flugzeugUUID);
-//
-//        DataHandler.insertFlug(flug);
-//        return Response
-//                .status(200)
-//                .entity("")
-//                .build();
-//    }
+    /**
+     * insert a new flight
+     * @param strecke distance of the fly in km
+     * @return Response
+     */
+    @PUT
+    @Path("create")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response insertFlug(
+            @FormParam("strecke") Integer strecke
+    ){
+        Flug flug = new Flug();
+        flug.setFlugUUID(UUID.randomUUID().toString());
+        flug.setStrecke(strecke);
 
-//    /**
-//     * updates a passenger
-//     * @param passagierUUID the key
-//     * @param name the name
-//     * @param vorname the first name
-//     * @param geburtsdatum the birthday
-//     * @param handynummer the phonenumber
-//     * @return Response
-//     */
-//    @POST
-//    @Path("update")
-//    @Produces(MediaType.TEXT_PLAIN)
-//    public Response insertPassenger(
-//            @FormParam("passagierUUID") String passagierUUID,
-//            @FormParam("name") String name,
-//            @FormParam("vorname") String vorname,
-//            @FormParam("geburtsdatum") String geburtsdatum,
-//            @FormParam("handynummer") String handynummer
-//    ){
-//        int httpStatus = 200;
-//        Passagier passagier = DataHandler.readPassagierByUUID(passagierUUID);
-//        if(passagier != null) {
-//            passagier.setName(name);
-//            passagier.setVorname(vorname);
-//            passagier.setGeburtsdatum(geburtsdatum);
-//            passagier.setHandynummer(handynummer);
-//
-//            DataHandler.updatePassagier();
-//        }
-//        else {
-//            httpStatus = 410;
-//        }
-//        return Response
-//                .status(httpStatus)
-//                .entity("")
-//                .build();
-//    }
+        DataHandler.insertFlug(flug);
+        return Response
+                .status(200)
+                .entity("")
+                .build();
+    }
+
+    /**
+     * updates a flight
+     * @param flugUUID the key
+     * @param strecke the key
+     * @return Response
+     */
+    @POST
+    @Path("update")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response insertPassenger(
+            @FormParam("flugUUID") String flugUUID,
+            @FormParam("strecke") Integer strecke
+    ){
+        int httpStatus = 200;
+        Flug flug = DataHandler.readFlugByUUID(flugUUID);
+        if(flug != null) {
+            flug.setStrecke(strecke);
+
+            DataHandler.updateFlug();
+        }
+        else {
+            httpStatus = 410;
+        }
+        return Response
+                .status(httpStatus)
+                .entity("")
+                .build();
+    }
 
     /**
      * deletes a Flug by UUID
@@ -122,7 +110,7 @@ public class FlugService {
     @DELETE
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
-    public Response deletePassenger(
+    public Response deleteFlug(
             @QueryParam("uuid") String flugUUID
     ){
         int httpStatus = 200;

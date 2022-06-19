@@ -14,6 +14,10 @@ import java.util.List;
  */
 public class Flug {
     private String flugUUID;
+    private Integer strecke;
+
+
+
     @JsonIgnore
     private List<Passagier> passagierListe;
     @JsonIgnore
@@ -41,6 +45,21 @@ public class Flug {
         this.flugUUID = flugUUID;
     }
 
+    /**
+     * gets strecke
+     *
+     * @return wert der Variable strecke
+     */
+    public Integer getStrecke() {
+        return strecke;
+    }
+
+    /**
+     * sets strecke
+     */
+    public void setStrecke(Integer strecke) {
+        this.strecke = strecke;
+    }
 /**
  * gets passagierListe
  * @return value of the variable passagierListe
