@@ -5,6 +5,9 @@ import ch.bzz.flugverwaltung.model.Flug;
 import ch.bzz.flugverwaltung.model.Flugzeug;
 import ch.bzz.flugverwaltung.model.Passagier;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -12,12 +15,12 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * services for reading, adding, changing and deleting flugs
+ * services for reading, adding, changing and deleting flights
  */
 @Path("flug")
 public class FlugService {
     /**
-     * reads a list of all flugs
+     * reads a list of all flight
      * @return
      */
     @GET
@@ -39,6 +42,8 @@ public class FlugService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readFlug(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String flugUUID
     ){
         int httpStatus = 200;
@@ -53,18 +58,15 @@ public class FlugService {
     }
     /**
      * insert a new flight
-     * @param strecke distance of the fly in km
      * @return Response
      */
-    @PUT
+    @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertFlug(
-            @FormParam("strecke") Integer strecke
+            @Valid @BeanParam Flug flug
     ){
-        Flug flug = new Flug();
         flug.setFlugUUID(UUID.randomUUID().toString());
-        flug.setStrecke(strecke);
 
         DataHandler.insertFlug(flug);
         return Response
@@ -76,20 +78,21 @@ public class FlugService {
     /**
      * updates a flight
      * @param flugUUID the key
-     * @param strecke the key
      * @return Response
      */
-    @POST
+    @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertPassenger(
-            @FormParam("flugUUID") String flugUUID,
-            @FormParam("strecke") Integer strecke
+            @Valid @BeanParam Flug flug,
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @FormParam("flugUUID") String flugUUID
     ){
         int httpStatus = 200;
-        Flug flug = DataHandler.readFlugByUUID(flugUUID);
-        if(flug != null) {
-            flug.setStrecke(strecke);
+        Flug oldFlug = DataHandler.readFlugByUUID(flugUUID);
+        if(oldFlug != null) {
+            oldFlug.setStrecke(flug.getStrecke());
 
             DataHandler.updateFlug();
         }
@@ -103,7 +106,7 @@ public class FlugService {
     }
 
     /**
-     * deletes a Flug by UUID
+     * deletes a flight by UUID
      * @param flugUUID the key
      * @return Response
      */
@@ -111,6 +114,8 @@ public class FlugService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteFlug(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String flugUUID
     ){
         int httpStatus = 200;

@@ -5,6 +5,9 @@ import ch.bzz.flugverwaltung.model.Flug;
 import ch.bzz.flugverwaltung.model.Flugzeug;
 import ch.bzz.flugverwaltung.model.Passagier;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -17,7 +20,7 @@ import java.util.UUID;
 @Path("flugzeug")
 public class FlugzeugService {
     /**
-     * reads a list of all flugzeugs
+     * reads a list of all planes
      *
      * @return
      */
@@ -33,13 +36,15 @@ public class FlugzeugService {
     }
 
     /**
-     * reads a flugzeug by UUID
+     * reads a plane by UUID
      * @return
      */
     @GET
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readFlugzeug(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String flugzeugUUID
     ){
         int httpStatus = 200;
@@ -54,26 +59,16 @@ public class FlugzeugService {
     }
 
     /**
-     * insert a new passenger
-     * @param marke the first name
-     * @param modell the birthday
-     * @param baujahr the phonenumber
+     * insert a new plane
      * @return Response
      */
-    @PUT
+    @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertFlugzeug(
-            @FormParam("marke") String marke,
-            @FormParam("modell") String modell,
-            @FormParam("baujahr") Integer baujahr
+            @Valid @BeanParam Flugzeug flugzeug
     ){
-        Flugzeug flugzeug = new Flugzeug();
         flugzeug.setFlugzeugUUID(UUID.randomUUID().toString());
-        flugzeug.setModell(modell);
-        flugzeug.setMarke(marke);
-        flugzeug.setBaujahr(baujahr);
-
         DataHandler.insertFlugzeug(flugzeug);
         return Response
                 .status(200)
@@ -82,28 +77,25 @@ public class FlugzeugService {
     }
 
     /**
-     * updates a passenger
+     * updates a plane
      * @param flugzeugUUID the key
-     * @param marke the name
-     * @param modell the first name
-     * @param baujahr the birthday
      * @return Response
      */
-    @POST
+    @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertPassenger(
-            @FormParam("flugzeugUUID") String flugzeugUUID,
-            @FormParam("marke") String marke,
-            @FormParam("modell") String modell,
-            @FormParam("baujahr") Integer baujahr
+            @Valid @BeanParam Flugzeug flugzeug,
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @FormParam("flugzeugUUID") String flugzeugUUID
     ){
         int httpStatus = 200;
-        Flugzeug flugzeug = DataHandler.readFlugzeugByUUID(flugzeugUUID);
-        if(flugzeug != null) {
-            flugzeug.setMarke(marke);
-            flugzeug.setModell(modell);
-            flugzeug.setBaujahr(baujahr);
+        Flugzeug oldFlugzeug = DataHandler.readFlugzeugByUUID(flugzeugUUID);
+        if(oldFlugzeug != null) {
+            oldFlugzeug.setMarke(flugzeug.getMarke());
+            oldFlugzeug.setModell(flugzeug.getModell());
+            oldFlugzeug.setBaujahr(flugzeug.getBaujahr());
 
             DataHandler.updateFlugzeug();
         }
@@ -117,7 +109,7 @@ public class FlugzeugService {
     }
 
     /**
-     * deletes a passenger by UUID
+     * deletes a plane by UUID
      * @param flugzeugUUID the key
      * @return Response
      */
@@ -125,6 +117,8 @@ public class FlugzeugService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteFlugzeug(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String flugzeugUUID
     ){
         int httpStatus = 200;

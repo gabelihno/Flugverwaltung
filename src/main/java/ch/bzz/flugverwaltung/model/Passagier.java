@@ -4,6 +4,10 @@ import ch.bzz.flugverwaltung.data.DataHandler;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import javax.ws.rs.FormParam;
 import java.time.LocalDate;
 
 /**
@@ -11,11 +15,30 @@ import java.time.LocalDate;
  */
 public class Passagier {
 
+    @FormParam("passagierUUID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String passagierUUID;
+
+    @FormParam("name")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String name;
+
+    @FormParam("vorname")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String vorname;
+
+    @FormParam("geburtsdatum")
+    @NotEmpty
+    @Size(min=10, max=10)
     private String geburtsdatum;
+
+    @FormParam("handynummer")
+    @NotEmpty
+    @Pattern(regexp = "0(2[1-246-7]|3[1-4]|4[13-4]|5[25-6]|6[1-2]|7[15-68-9]|8[17]|91)[0-9]{7}")
     private String handynummer;
+
     @JsonIgnore
     private Flug flug;
 

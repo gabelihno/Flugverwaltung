@@ -6,6 +6,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.ws.rs.FormParam;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +18,14 @@ import java.util.List;
  * model class flug
  */
 public class Flug {
+    @FormParam("flugUUID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String flugUUID;
+
+    @FormParam("strecke")
+    @NotNull
+    @Min(10)
+    @Max(20000)
     private Integer strecke;
 
 

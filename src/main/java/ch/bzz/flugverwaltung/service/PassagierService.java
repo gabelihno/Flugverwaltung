@@ -3,6 +3,9 @@ package ch.bzz.flugverwaltung.service;
 import ch.bzz.flugverwaltung.data.DataHandler;
 import ch.bzz.flugverwaltung.model.Passagier;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -39,6 +42,8 @@ public class PassagierService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readPassenger(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String passagierUUID
     ){
         int httpStatus = 200;
@@ -54,27 +59,15 @@ public class PassagierService {
 
     /**
      * insert a new passenger
-     * @param name the name
-     * @param vorname the first name
-     * @param geburtsdatum the birthday
-     * @param handynummer the phonenumber
      * @return Response
      */
-    @PUT
+    @POST
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertPassenger(
-            @FormParam("name") String name,
-            @FormParam("vorname") String vorname,
-            @FormParam("geburtsdatum") String geburtsdatum,
-            @FormParam("handynummer") String handynummer
+            @Valid @BeanParam Passagier passagier
             ){
-        Passagier passagier = new Passagier();
         passagier.setPassagierUUID(UUID.randomUUID().toString());
-        passagier.setName(name);
-        passagier.setVorname(vorname);
-        passagier.setGeburtsdatum(geburtsdatum);
-        passagier.setHandynummer(handynummer);
 
         DataHandler.insertPassagier(passagier);
         return Response
@@ -86,29 +79,24 @@ public class PassagierService {
     /**
      * updates a passenger
      * @param passagierUUID the key
-     * @param name the name
-     * @param vorname the first name
-     * @param geburtsdatum the birthday
-     * @param handynummer the phonenumber
      * @return Response
      */
-    @POST
+    @PUT
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertPassenger(
-            @FormParam("passagierUUID") String passagierUUID,
-            @FormParam("name") String name,
-            @FormParam("vorname") String vorname,
-            @FormParam("geburtsdatum") String geburtsdatum,
-            @FormParam("handynummer") String handynummer
+            @Valid @BeanParam Passagier passagier,
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
+            @FormParam("passagierUUID") String passagierUUID
     ){
         int httpStatus = 200;
-        Passagier passagier = DataHandler.readPassagierByUUID(passagierUUID);
-        if(passagier != null) {
-            passagier.setName(name);
-            passagier.setVorname(vorname);
-            passagier.setGeburtsdatum(geburtsdatum);
-            passagier.setHandynummer(handynummer);
+        Passagier oldPassagier = DataHandler.readPassagierByUUID(passagierUUID);
+        if(oldPassagier != null) {
+            oldPassagier.setName(passagier.getName());
+            oldPassagier.setVorname(passagier.getVorname());
+            oldPassagier.setGeburtsdatum(passagier.getGeburtsdatum());
+            oldPassagier.setHandynummer(passagier.getHandynummer());
 
             DataHandler.updatePassagier();
         }
@@ -130,6 +118,8 @@ public class PassagierService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deletePassenger(
+            @NotEmpty
+            @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String passagierUUID
     ){
         int httpStatus = 200;

@@ -7,6 +7,22 @@
 	"item": [
 		{
 			"name": "0.1 Testservice",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -29,6 +45,22 @@
 		},
 		{
 			"name": "1.0 list all passengers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is application/json\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -51,6 +83,22 @@
 		},
 		{
 			"name": "1.1 read passenger by UUID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is application/json\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -79,6 +127,22 @@
 		},
 		{
 			"name": "1.2 read passenger by UUID not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(410);",
+							"});",
+							"pm.test(\"Content-Type header is text/html\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -106,7 +170,23 @@
 			"response": []
 		},
 		{
-			"name": "2.0 list all flugs",
+			"name": "2.0 list all flights",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is application/json\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -128,7 +208,23 @@
 			"response": []
 		},
 		{
-			"name": "2.1 read flug by UUID",
+			"name": "2.1 read flight by UUID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is application/json\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -156,7 +252,23 @@
 			"response": []
 		},
 		{
-			"name": "2.2 read flug by UUID not found",
+			"name": "2.2 read flight by UUID not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(410);",
+							"});",
+							"pm.test(\"Content-Type header is text/html\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -184,7 +296,32 @@
 			"response": []
 		},
 		{
-			"name": "3.0 list all flugzeugs",
+			"name": "3.0 list all planes",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is application/json\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -206,7 +343,23 @@
 			"response": []
 		},
 		{
-			"name": "3.1 read flugzeug by UUID",
+			"name": "3.1 read plane by UUID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is application/json\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -234,7 +387,23 @@
 			"response": []
 		},
 		{
-			"name": "3.2 read flugzeug by UUID not found",
+			"name": "3.2 read plane by UUID not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(410);",
+							"});",
+							"pm.test(\"Content-Type header is text/html\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -256,6 +425,4529 @@
 							"key": "uuid",
 							"value": "3d43c340-c712-402e-b400-0a23a9568c93"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.1 delete passenger",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete?uuid=3d47c340-c712-402e-b400-0a23a9568c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3d47c340-c712-402e-b400-0a23a9568c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.2 delete passenger not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(410);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete?uuid=3e47c340-c712-402e-b400-0a23a9568c95",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3e47c340-c712-402e-b400-0a23a9568c95"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.5 insert passenger",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is application/json\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "name",
+							"value": "Messi",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Lionel",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1986-05-25",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.20 update passenger",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ronaldo",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Cristiano",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1983-02-05",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4.21 update passenger not found",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "0e47c340-c712-402e-b400-0a23a9568c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Verstappen",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Alfredo",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "2001-02-22",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0768732324",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.1 delete flight",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete?uuid=ecd26148-5341-43c6-81ed-f3f45959a12b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "ecd26148-5341-43c6-81ed-f3f45959a12b"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.2 delete flight not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(410);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete?uuid=ecd36148-5341-43c6-81ed-f3f45959a12b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "ecd36148-5341-43c6-81ed-f3f45959a12b"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.5 insert flight",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "strecke",
+							"value": "4321",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.20 update flight",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugUUID",
+							"value": "ecd26148-5341-43c6-81ed-f3f45959a12a",
+							"type": "text"
+						},
+						{
+							"key": "strecke",
+							"value": "894",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5.21 update flight not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(410);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugUUID",
+							"value": "0e47c340-c712-402e-b400-0a23a9568c97",
+							"type": "text"
+						},
+						{
+							"key": "strecke",
+							"value": "942",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.1 delete plane",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete?uuid=3d47c340-c712-402e-b400-0a23a9568c93",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3d47c340-c712-402e-b400-0a23a9568c93"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.2 delete plane not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(410);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete?uuid=3e47c340-c712-402e-b400-0a23a9568c93",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3e47c340-c712-402e-b400-0a23a9568c93"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.5 insert plane",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "Ryan Air",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "airbus 350",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2001",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.20 update plane",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugzeugUUID",
+							"value": "3d47c340-c712-402e-b400-0a23a9568c93",
+							"type": "text"
+						},
+						{
+							"key": "marke",
+							"value": "Emirates",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Boeing 777",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "1998",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6.21 update plane not found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(410);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugzeugUUID",
+							"value": "3d47c340-c712-402e-b400-0a23a9528c92",
+							"type": "text"
+						},
+						{
+							"key": "marke",
+							"value": "Emirates",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Boeing 747",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "1993",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.1 passenger read missing uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.2 passenger read invalid uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=3xy7c340-c712-402e-b400-0a23a9568c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3xy7c340-c712-402e-b400-0a23a9568c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.3 delete passenger invalid uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete?uuid=3xy7c340-c712-402e-b400-0a23a9568c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3xy7c340-c712-402e-b400-0a23a9568c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.4 delete passenger missing uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.5 insert passenger: name too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "g",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "gabriel",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1999-05-25",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0765833637",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.6 insert passenger: name too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "gabrielahahahahahahahahahhahahahahahahaahahahahahahahahahahahahahahahahahahah",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "gabriel",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1999-05-25",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0765833637",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.7 insert passenger: name empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "gabriel",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1999-05-25",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0765833637",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.8 insert passenger: vorname too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "martinez",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "ga",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1999-05-25",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0765833637",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.9 insert passenger: vorname too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "martinez",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "gabrielahahahahahahahahahhahahahahahahaahahahahahahahahahahahahahahahahahahah",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1999-05-25",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0765833637",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.10 insert passenger: vorname empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "martinez",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1999-05-25",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0765833637",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.11 insert passenger: geburtsdatum too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "martinez",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "gabi",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1994-04-1",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0765833637",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.12 insert passenger: geburtsdatum too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "martinez",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "gabi",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1994-04-112",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0765833637",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.13 insert passenger: geburtsdatum empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "martinez",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "gabi",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0765833637",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.14 insert passenger: invaild phone number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "martinez",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "gabi",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1990-04-12",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "2765833637",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.15 insert passenger: phone number empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "martinez",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "gabi",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1990-04-12",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.16 update passenger  missing uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "R",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Cristiano",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1983-02-05",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.17 update passenger invalid uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "32e7c340-c7x2-402e-b400-0a23a9328c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "R",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Cristiano",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1983-02-05",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.18 update passenger name too short",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "R",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Cristiano",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1983-02-05",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.19 update passenger name too long",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ronaldoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Cristiano",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1983-02-05",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.20 update passenger name empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Cristiano",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1983-02-05",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.21 update passenger vorname too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ronaldo",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Cri",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1983-02-05",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.22 update passenger vorname too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ronaldo",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Cristianoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1983-02-05",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.23 update passenger vorname empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ronaldo",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1983-02-05",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.24 update passenger geburtsdatum too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ronaldo",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Cristiano",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1983-02-0",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.25 update passenger geburtsdatum too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ronaldo",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Cristiano",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1983-02-022",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.26 update passenger geburtsdatum empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});s"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ronaldo",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Cristiano",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "0794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.27 update passenger invalid phone number",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ronaldo",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Cristiano",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1993-12-12",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "3794723435",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7.28 update passenger  phone number empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "passagierUUID",
+							"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Ronaldo",
+							"type": "text"
+						},
+						{
+							"key": "vorname",
+							"value": "Cristiano",
+							"type": "text"
+						},
+						{
+							"key": "geburtsdatum",
+							"value": "1993-12-12",
+							"type": "text"
+						},
+						{
+							"key": "handynummer",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"passagier",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.1 flight read invalid uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=3xy7c340-c712-402e-b400-0a23a9568c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3xy7c340-c712-402e-b400-0a23a9568c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.2 flight read missing uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.3 flight delete missing uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.4 flight delete invalid uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete?uuid=3xy7c340-c712-402e-b400-0a23a9568c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3xy7c340-c712-402e-b400-0a23a9568c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.5 flight insert strecke too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "strecke",
+							"value": "9",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.6 flight insert strecke too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "strecke",
+							"value": "20001",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.7 flight insert strecke empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "strecke",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.8 update flight invalid uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugUUID",
+							"value": "ecd26148-5341-43c6-81ed-f3f45959a12x",
+							"type": "text"
+						},
+						{
+							"key": "strecke",
+							"value": "894",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.9 update flight empty uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugUUID",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "strecke",
+							"value": "894",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.10 update flight strecke too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugUUID",
+							"value": "ecd26148-5341-43c6-81ed-f3f45959a12e",
+							"type": "text"
+						},
+						{
+							"key": "strecke",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.11 update flight strecke too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugUUID",
+							"value": "ecd26148-5341-43c6-81ed-f3f45959a12e",
+							"type": "text"
+						},
+						{
+							"key": "strecke",
+							"value": "89499",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "8.12 update flight strecke empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugUUID",
+							"value": "ecd26148-5341-43c6-81ed-f3f45959a12e",
+							"type": "text"
+						},
+						{
+							"key": "strecke",
+							"value": "89499",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.1 plane read invalid uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/read?uuid=3xy7c340-c712-402e-b400-0a23a9568c97",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"read"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3xy7c340-c712-402e-b400-0a23a9568c97"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.2 plane read empty uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/read",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.3 plane delete missing uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete?uuid=3x47c340-c712-402e-b400-0a23a9568c93",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "uuid",
+							"value": "3x47c340-c712-402e-b400-0a23a9568c93"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.4 plane delete empty uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.5 plane insert marke too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "ee",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Airbus 380",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2011",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.6 plane insert marke too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "ethiaddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Airbus 380",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2011",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.7 plane insert marke empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Airbus 380",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2011",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.8 plane insert modell too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "Ethiad",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "A",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2011",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.9 plane insert modell too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "Ethiad",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Airbussssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2011",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.10 plane insert modell empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "Ethiad",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2011",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.11 plane insert baujahr too small",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "Ethiad",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Airbus 380",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "1500",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.12 plane insert baujahr too big",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "Ethiad",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Airbus 380",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.13 plane insert baujahr empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "marke",
+							"value": "Ethiad",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Airbus 380",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.14 update plane invalid uuid",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugzeugUUID",
+							"value": "3dx7c340-c712-402e-b400-0a23a9568c93",
+							"type": "text"
+						},
+						{
+							"key": "marke",
+							"value": "Emirates",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Boeing 777",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "1998",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.15 update plane empty uuid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugzeugUUID",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "marke",
+							"value": "Emirates",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Boeing 777",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "1998",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.16 update plane marke too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugzeugUUID",
+							"value": "3de7c340-c712-402e-b400-0a23a9568c93",
+							"type": "text"
+						},
+						{
+							"key": "marke",
+							"value": "E",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Boeing 777",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "1998",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.17 update plane marke too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugzeugUUID",
+							"value": "3de7c340-c712-402e-b400-0a23a9568c93",
+							"type": "text"
+						},
+						{
+							"key": "marke",
+							"value": "Emirateswwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Boeing 777",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "1998",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.18 update plane marke empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugzeugUUID",
+							"value": "3de7c340-c712-402e-b400-0a23a9568c93",
+							"type": "text"
+						},
+						{
+							"key": "marke",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Boeing 777",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "1998",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.20 update plane modell too short",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugzeugUUID",
+							"value": "3de7c340-c712-402e-b400-0a23a9568c93",
+							"type": "text"
+						},
+						{
+							"key": "marke",
+							"value": "Ethiad",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "B",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "1998",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.21 update plane modell too long",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugzeugUUID",
+							"value": "3de7c340-c712-402e-b400-0a23a9568c93",
+							"type": "text"
+						},
+						{
+							"key": "marke",
+							"value": "Ethiad",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Boeing 777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "1998",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.22 update plane modell empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugzeugUUID",
+							"value": "3de7c340-c712-402e-b400-0a23a9568c93",
+							"type": "text"
+						},
+						{
+							"key": "marke",
+							"value": "Ethiad",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "1998",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.23 update plane baujahr too small",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugzeugUUID",
+							"value": "3de7c340-c712-402e-b400-0a23a9568c93",
+							"type": "text"
+						},
+						{
+							"key": "marke",
+							"value": "Ethiad",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Airbus 380",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "1600",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.24 update plane baujahr too big",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugzeugUUID",
+							"value": "3de7c340-c712-402e-b400-0a23a9568c93",
+							"type": "text"
+						},
+						{
+							"key": "marke",
+							"value": "Ethiad",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Airbus 380",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "2100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "9.25 update plane baujahr empty",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Content-Type header is text/plain\", () => {",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "flugzeugUUID",
+							"value": "3de7c340-c712-402e-b400-0a23a9568c93",
+							"type": "text"
+						},
+						{
+							"key": "marke",
+							"value": "Ethiad",
+							"type": "text"
+						},
+						{
+							"key": "modell",
+							"value": "Airbus 380",
+							"type": "text"
+						},
+						{
+							"key": "baujahr",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Flugverwaltung-1.0",
+						"resource",
+						"flugzeug",
+						"update"
 					]
 				}
 			},

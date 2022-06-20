@@ -4,18 +4,37 @@ import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerator;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import javax.validation.constraints.*;
+import javax.ws.rs.FormParam;
+
 /**
  * model class flugzeug
  */
 public class Flugzeug {
+
+    @FormParam("flugzeugUUID")
+    @Pattern(regexp = "|[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
     private String flugzeugUUID;
+
+    @FormParam("marke")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String marke;
+
+    @FormParam("modell")
+    @NotEmpty
+    @Size(min=5, max=40)
     private String modell;
+
+    @FormParam("baujahr")
+    @NotNull
+    @Min(1800)
+    @Max(2022)
     private Integer baujahr;
 
     /**
      * gets flugzeugUUID
-     * @return value of the varible flugzeugUUID
+     * @return value of the variable flugzeugUUID
      */
     public String getFlugzeugUUID() {
         return flugzeugUUID;
