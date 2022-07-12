@@ -1,18 +1,564 @@
 {
-	"id": "360755db-3a6b-4ca9-832b-49835b09a754",
+	"id": "a71c9883-3092-44b7-8559-980948b11a88",
 	"name": "Flugverwaltung",
-	"timestamp": "2022-06-20T20:40:29.332Z",
+	"timestamp": "2022-07-12T10:28:59.161Z",
 	"collection_id": "35084ba5-9d86-45b0-93fe-df39acb0d87c",
-	"folder_id": 0,
+	"folder_id": "7f16cdf9-336d-4306-8887-d3961e0842d9",
 	"environment_id": "0",
-	"totalPass": 97,
+	"totalPass": 79,
 	"totalFail": 0,
 	"results": [
 		{
-			"id": "a89bf145-e796-4ebd-bd4e-076b8f1ae00a",
-			"name": "0.1 Testservice",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/test/test",
-			"time": 412,
+			"id": "46215b11-153e-4e7b-b314-4df3696139bb",
+			"name": "0.3 Logout",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/user/logout",
+			"time": 14,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				14
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "2cf89e54-e20b-4867-936b-452d1067b69f",
+			"name": "1.0 list all passengers forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/list",
+			"time": 15,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "d00b6fa2-7a3f-4b4e-ab31-1557c89bfdee",
+			"name": "1.1 read passenger by UUID forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=3d47c340-c712-402e-b400-0a23a9568c97",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "734890f9-425e-4374-b918-a4d2d9a897cd",
+			"name": "4.1 delete passenger forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete?uuid=3d47c340-c712-402e-b400-0a23a9568c97",
+			"time": 5,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "08dcc3df-c889-4766-9878-1e8963368010",
+			"name": "4.5 insert passenger forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+			"time": 172,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				172
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "ee5db499-dc91-43f6-9f6c-15369528026e",
+			"name": "4.20 update passenger forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "47b27c1b-9592-4c7c-b1d1-0ae3478db8da",
+			"name": "2.0 list all flights forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/list",
+			"time": 8,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				8
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "916e3e9e-18e4-41ee-860d-d758a7fe419a",
+			"name": "2.1 read flight by UUID forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd26148-5341-43c6-81ed-f3f45959a12a",
+			"time": 3,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "b3183f69-cfff-43d8-a982-14a3fb891c8a",
+			"name": "5.1 delete flight forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete?uuid=ecd26148-5341-43c6-81ed-f3f45959a12b",
+			"time": 5,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "b6b43241-3aa9-46da-a550-953ffcdf71be",
+			"name": "5.5 insert flight forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/create",
+			"time": 14,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				14
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "392133df-9934-486e-9d49-871c2e04c565",
+			"name": "5.20 update flight forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "02b0059b-d479-40b4-9b9e-2111fb5b1d12",
+			"name": "3.0 list all planes forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/list",
+			"time": 6,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "12c43eba-7fa6-4464-88b2-0158b1207020",
+			"name": "3.1 read plane by UUID forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/read?uuid=3d47c340-c712-402e-b400-0a23a9568c92",
+			"time": 11,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "fafe1ae7-3e6e-4a05-819f-18b4ff1d0c48",
+			"name": "6.1 delete plane forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete?uuid=3d47c340-c712-402e-b400-0a23a9568c93",
+			"time": 13,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "3175b449-a070-4080-8160-07d6860b6171",
+			"name": "6.5 insert plane forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+			"time": 13,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				13
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "28606ecf-05cc-4a71-9f5b-7438b990bc1a",
+			"name": "6.20 update plane forbidden",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+			"time": 16,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "0ea75737-1781-406c-92d4-04507427949d",
+			"name": "0.2 Login failed",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/user/login",
+			"time": 10,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "0d20b62f-2dbf-4bf0-8d2a-46ef202f9932",
+			"name": "0.1 Login",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/user/login",
+			"time": 7,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -32,7 +578,7 @@
 				}
 			},
 			"times": [
-				412
+				7
 			],
 			"allTests": [
 				{
@@ -45,7 +591,7 @@
 			"id": "05a6be88-5e8c-4691-b8c8-d96752523c5d",
 			"name": "1.0 list all passengers",
 			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/list",
-			"time": 369,
+			"time": 334,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -65,7 +611,7 @@
 				}
 			},
 			"times": [
-				369
+				334
 			],
 			"allTests": [
 				{
@@ -78,7 +624,7 @@
 			"id": "d2ffce5e-fe99-4c17-b40e-e83b560a5c47",
 			"name": "1.1 read passenger by UUID",
 			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=3d47c340-c712-402e-b400-0a23a9568c97",
-			"time": 29,
+			"time": 7,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -98,7 +644,7 @@
 				}
 			},
 			"times": [
-				29
+				7
 			],
 			"allTests": [
 				{
@@ -111,6 +657,105 @@
 			"id": "46d7a9e2-20dd-4d60-b72d-68001a5335a5",
 			"name": "1.2 read passenger by UUID not found",
 			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=5e47c340-c712-402e-b400-0a23a9568c97",
+			"time": 4,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/html": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/html": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/html": true
+				}
+			]
+		},
+		{
+			"id": "e29bffb6-59fa-4623-abdd-50447bbbca64",
+			"name": "2.0 list all flights",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/list",
+			"time": 44,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				44
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "d1be8431-ee24-4a8c-a58b-604a6e0d6a79",
+			"name": "2.1 read flight by UUID",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd26148-5341-43c6-81ed-f3f45959a12a",
+			"time": 4,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "61aef8bd-9cd2-4016-b0a3-7a80befb67ec",
+			"name": "2.2 read flight by UUID not found",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd36148-5341-43c6-81ed-f3f45959a12a",
 			"time": 7,
 			"responseCode": {
 				"code": 410,
@@ -141,109 +786,10 @@
 			]
 		},
 		{
-			"id": "e29bffb6-59fa-4623-abdd-50447bbbca64",
-			"name": "2.0 list all flights",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/list",
-			"time": 33,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is application/json": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is application/json": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				33
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is application/json": true
-				}
-			]
-		},
-		{
-			"id": "d1be8431-ee24-4a8c-a58b-604a6e0d6a79",
-			"name": "2.1 read flight by UUID",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd26148-5341-43c6-81ed-f3f45959a12a",
-			"time": 6,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is application/json": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is application/json": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				6
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is application/json": true
-				}
-			]
-		},
-		{
-			"id": "61aef8bd-9cd2-4016-b0a3-7a80befb67ec",
-			"name": "2.2 read flight by UUID not found",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd36148-5341-43c6-81ed-f3f45959a12a",
-			"time": 3,
-			"responseCode": {
-				"code": 410,
-				"name": "Gone"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/html": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/html": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				3
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/html": true
-				}
-			]
-		},
-		{
 			"id": "1d17923e-2131-490f-a3f3-e533d7252cb0",
 			"name": "3.0 list all planes",
 			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/list",
-			"time": 8,
+			"time": 26,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -263,7 +809,7 @@
 				}
 			},
 			"times": [
-				8
+				26
 			],
 			"allTests": [
 				{
@@ -276,7 +822,7 @@
 			"id": "862577c3-ce56-4bf9-9053-9d57f96db8ec",
 			"name": "3.1 read plane by UUID",
 			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/read?uuid=3d47c340-c712-402e-b400-0a23a9568c92",
-			"time": 5,
+			"time": 7,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -296,7 +842,7 @@
 				}
 			},
 			"times": [
-				5
+				7
 			],
 			"allTests": [
 				{
@@ -342,7 +888,7 @@
 			"id": "615287c0-3b42-4269-aa5e-6ba4bc691d4c",
 			"name": "4.1 delete passenger",
 			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete?uuid=3d47c340-c712-402e-b400-0a23a9568c97",
-			"time": 93,
+			"time": 74,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -357,7 +903,7 @@
 				}
 			},
 			"times": [
-				93
+				74
 			],
 			"allTests": [
 				{
@@ -369,255 +915,6 @@
 			"id": "b1409bfd-7282-4fdd-9c75-65f4212f1014",
 			"name": "4.2 delete passenger not found",
 			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete?uuid=3e47c340-c712-402e-b400-0a23a9568c95",
-			"time": 4,
-			"responseCode": {
-				"code": 410,
-				"name": "Gone"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "f05f4e8c-7dc2-4a64-95a5-dd6b9e4def65",
-			"name": "4.5 insert passenger",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
-			"time": 469,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is application/json": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is application/json": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				469
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is application/json": true
-				}
-			]
-		},
-		{
-			"id": "c53860a1-7802-4589-b84d-9fea8e5e5b03",
-			"name": "4.20 update passenger",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-			"time": 12,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				12
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "79a7f9e3-4a1d-4dfc-b04f-40d8678d71f9",
-			"name": "4.21 update passenger not found",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-			"time": 8,
-			"responseCode": {
-				"code": 410,
-				"name": "Gone"
-			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				8
-			],
-			"allTests": [
-				{}
-			]
-		},
-		{
-			"id": "57a7084b-6d50-4584-9b02-2684e15ccae5",
-			"name": "5.1 delete flight",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete?uuid=ecd26148-5341-43c6-81ed-f3f45959a12b",
-			"time": 18,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				18
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "e218af9e-5892-4cb8-8ba7-b3ba1d547da3",
-			"name": "5.2 delete flight not found",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete?uuid=ecd36148-5341-43c6-81ed-f3f45959a12b",
-			"time": 4,
-			"responseCode": {
-				"code": 410,
-				"name": "Gone"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				4
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "dad0974c-cc30-489c-a01c-70d2f2766101",
-			"name": "5.5 insert flight",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/create",
-			"time": 12,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				12
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "2bedb4ef-25ab-4225-af20-b0a0ed1a1d3f",
-			"name": "5.20 update flight",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
-			"time": 19,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				19
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "680825af-1823-4108-ab5b-97fa40573dc6",
-			"name": "5.21 update flight not found",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
 			"time": 6,
 			"responseCode": {
 				"code": 410,
@@ -648,10 +945,43 @@
 			]
 		},
 		{
-			"id": "fee880e3-7173-41a6-b65b-88c0e519bdb4",
-			"name": "6.1 delete plane",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete?uuid=3d47c340-c712-402e-b400-0a23a9568c93",
-			"time": 12,
+			"id": "f05f4e8c-7dc2-4a64-95a5-dd6b9e4def65",
+			"name": "4.5 insert passenger",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+			"time": 51,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				51
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "c53860a1-7802-4589-b84d-9fea8e5e5b03",
+			"name": "4.20 update passenger",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+			"time": 42,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -671,7 +1001,7 @@
 				}
 			},
 			"times": [
-				12
+				42
 			],
 			"allTests": [
 				{
@@ -681,75 +1011,27 @@
 			]
 		},
 		{
-			"id": "a6002ca9-9906-463c-b9ce-f3a244f71515",
-			"name": "6.2 delete plane not found",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete?uuid=3e47c340-c712-402e-b400-0a23a9568c93",
-			"time": 3,
+			"id": "79a7f9e3-4a1d-4dfc-b04f-40d8678d71f9",
+			"name": "4.21 update passenger not found",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+			"time": 7,
 			"responseCode": {
 				"code": 410,
 				"name": "Gone"
 			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
+			"tests": {},
+			"testPassFailCounts": {},
 			"times": [
-				3
+				7
 			],
 			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
+				{}
 			]
 		},
 		{
-			"id": "99b4ae85-f8eb-4418-9fe1-4bf2dbb52ab4",
-			"name": "6.5 insert plane",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
-			"time": 20,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				20
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "4c93f525-4831-4244-8117-bb71d7d28826",
-			"name": "6.20 update plane",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+			"id": "57a7084b-6d50-4584-9b02-2684e15ccae5",
+			"name": "5.1 delete flight",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete?uuid=ecd26148-5341-43c6-81ed-f3f45959a12b",
 			"time": 10,
 			"responseCode": {
 				"code": 200,
@@ -780,10 +1062,10 @@
 			]
 		},
 		{
-			"id": "8433c9c9-8e86-44b2-8601-19c90aca3103",
-			"name": "6.21 update plane not found",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
-			"time": 7,
+			"id": "e218af9e-5892-4cb8-8ba7-b3ba1d547da3",
+			"name": "5.2 delete flight not found",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete?uuid=ecd36148-5341-43c6-81ed-f3f45959a12b",
+			"time": 6,
 			"responseCode": {
 				"code": 410,
 				"name": "Gone"
@@ -803,7 +1085,7 @@
 				}
 			},
 			"times": [
-				7
+				6
 			],
 			"allTests": [
 				{
@@ -813,13 +1095,13 @@
 			]
 		},
 		{
-			"id": "a3345e26-9251-4548-8b10-ca1109ceac35",
-			"name": "7.1 passenger read missing uuid",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read",
-			"time": 95,
+			"id": "dad0974c-cc30-489c-a01c-70d2f2766101",
+			"name": "5.5 insert flight",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/create",
+			"time": 13,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 200,
+				"name": "OK"
 			},
 			"tests": {
 				"Status test": true,
@@ -836,7 +1118,7 @@
 				}
 			},
 			"times": [
-				95
+				13
 			],
 			"allTests": [
 				{
@@ -846,79 +1128,13 @@
 			]
 		},
 		{
-			"id": "1fcb3958-1c6e-492c-8daa-1a6fc7b92abc",
-			"name": "7.2 passenger read invalid uuid",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=3xy7c340-c712-402e-b400-0a23a9568c97",
-			"time": 9,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				9
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "64b40b5f-b56c-4130-9196-57573a6554da",
-			"name": "7.3 delete passenger invalid uuid",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete?uuid=3xy7c340-c712-402e-b400-0a23a9568c97",
-			"time": 15,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				15
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "ca339e06-b42a-4f75-bb2f-9071be8e887d",
-			"name": "7.4 delete passenger missing uuid",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete",
+			"id": "2bedb4ef-25ab-4225-af20-b0a0ed1a1d3f",
+			"name": "5.20 update flight",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
 			"time": 8,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 200,
+				"name": "OK"
 			},
 			"tests": {
 				"Status test": true,
@@ -945,13 +1161,79 @@
 			]
 		},
 		{
-			"id": "a82767ab-ef96-444a-b28c-188d1991e21c",
-			"name": "7.5 insert passenger: name too short",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+			"id": "680825af-1823-4108-ab5b-97fa40573dc6",
+			"name": "5.21 update flight not found",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
+			"time": 5,
+			"responseCode": {
+				"code": 410,
+				"name": "Gone"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "fee880e3-7173-41a6-b65b-88c0e519bdb4",
+			"name": "6.1 delete plane",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete?uuid=3d47c340-c712-402e-b400-0a23a9568c93",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status test": true,
+				"Content-Type header is text/plain": true
+			},
+			"testPassFailCounts": {
+				"Status test": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is text/plain": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Status test": true,
+					"Content-Type header is text/plain": true
+				}
+			]
+		},
+		{
+			"id": "a6002ca9-9906-463c-b9ce-f3a244f71515",
+			"name": "6.2 delete plane not found",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete?uuid=3e47c340-c712-402e-b400-0a23a9568c93",
 			"time": 16,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 410,
+				"name": "Gone"
 			},
 			"tests": {
 				"Status test": true,
@@ -978,13 +1260,13 @@
 			]
 		},
 		{
-			"id": "3365fcd3-7518-4f74-a3ee-52a600ebde64",
-			"name": "7.6 insert passenger: name too long",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
-			"time": 6,
+			"id": "99b4ae85-f8eb-4418-9fe1-4bf2dbb52ab4",
+			"name": "6.5 insert plane",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+			"time": 17,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 200,
+				"name": "OK"
 			},
 			"tests": {
 				"Status test": true,
@@ -1001,7 +1283,7 @@
 				}
 			},
 			"times": [
-				6
+				17
 			],
 			"allTests": [
 				{
@@ -1011,526 +1293,13 @@
 			]
 		},
 		{
-			"id": "cbfad79e-964b-4f7c-8c58-802366cbd671",
-			"name": "7.7 insert passenger: name empty",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
-			"time": 10,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				10
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "a961fddb-455d-424e-87b3-fd3325c7a30b",
-			"name": "7.8 insert passenger: vorname too short",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				7
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "7ea293d8-2901-4ec6-ae28-a230e2c671d3",
-			"name": "7.9 insert passenger: vorname too long",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
-			"time": 10,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				10
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "7c218bd7-c0f5-412e-af99-a73b5a2b8435",
-			"name": "7.10 insert passenger: vorname empty",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				7
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "36d887ff-3f12-4b02-8c94-d731c48dc822",
-			"name": "7.11 insert passenger: geburtsdatum too short",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
-			"time": 12,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				12
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "48b6f31a-1b3a-4175-b162-ed6564af8467",
-			"name": "7.12 insert passenger: geburtsdatum too long",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
-			"time": 22,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				22
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "ae64f5a1-6120-421c-b679-c9923ba0d218",
-			"name": "7.13 insert passenger: geburtsdatum empty",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
-			"time": 8,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				8
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "be00df36-66a6-419b-a13a-5239d1b8d829",
-			"name": "7.14 insert passenger: invaild phone number",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
-			"time": 21,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				21
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "c2e2181e-bbb1-4b6d-8522-a43fc0beb624",
-			"name": "7.15 insert passenger: phone number empty",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "127097c0-e3ac-4385-9ab4-b8139ff5ef22",
-			"name": "7.16 update passenger  missing uuid",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				7
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "dfb4add2-c1e7-41fa-89ec-843290af2e9b",
-			"name": "7.17 update passenger invalid uuid",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-			"time": 8,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				8
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "81feb0d7-ecf2-4114-b72a-1863ae93c382",
-			"name": "7.18 update passenger name too short",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				7
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "17e3679e-dcaa-4abb-8a08-d459ba9086cf",
-			"name": "7.19 update passenger name too long",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-			"time": 6,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {},
-			"testPassFailCounts": {},
-			"times": [
-				6
-			],
-			"allTests": [
-				{}
-			]
-		},
-		{
-			"id": "67e8c38b-c1e9-4430-b854-dfa628410bad",
-			"name": "7.20 update passenger name empty",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "4f36bad2-b483-4111-9d70-cbcdfbb2f6c1",
-			"name": "7.21 update passenger vorname too short",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "d77d9dd5-b3c4-4ea2-a426-d8bb7abe5f99",
-			"name": "7.22 update passenger vorname too long",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-			"time": 7,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				7
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "e31cdbf6-5f6e-4344-9339-7c1174622272",
-			"name": "7.23 update passenger vorname empty",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+			"id": "4c93f525-4831-4244-8117-bb71d7d28826",
+			"name": "6.20 update plane",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
 			"time": 9,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 200,
+				"name": "OK"
 			},
 			"tests": {
 				"Status test": true,
@@ -1557,13 +1326,13 @@
 			]
 		},
 		{
-			"id": "22c3eca4-b187-43c9-a518-1f804350260c",
-			"name": "7.24 update passenger geburtsdatum too short",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-			"time": 7,
+			"id": "8433c9c9-8e86-44b2-8601-19c90aca3103",
+			"name": "6.21 update plane not found",
+			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+			"time": 6,
 			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
+				"code": 410,
+				"name": "Gone"
 			},
 			"tests": {
 				"Status test": true,
@@ -1580,73 +1349,7 @@
 				}
 			},
 			"times": [
-				7
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "434dcfdf-f26f-4798-b511-bb592f39823d",
-			"name": "7.25 update passenger geburtsdatum too long",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-			"time": 9,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				9
-			],
-			"allTests": [
-				{
-					"Status test": true,
-					"Content-Type header is text/plain": true
-				}
-			]
-		},
-		{
-			"id": "2518118f-b9ec-4a7d-bd49-f05110a0b02f",
-			"name": "7.26 update passenger geburtsdatum empty",
-			"url": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-			"time": 5,
-			"responseCode": {
-				"code": 400,
-				"name": "Bad Request"
-			},
-			"tests": {
-				"Status test": true,
-				"Content-Type header is text/plain": true
-			},
-			"testPassFailCounts": {
-				"Status test": {
-					"pass": 1,
-					"fail": 0
-				},
-				"Content-Type header is text/plain": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				5
+				6
 			],
 			"allTests": [
 				{
@@ -1657,12 +1360,80 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 1899,
+	"totalTime": 1046,
 	"collection": {
 		"requests": [
 			{
-				"id": "a89bf145-e796-4ebd-bd4e-076b8f1ae00a",
+				"id": "46215b11-153e-4e7b-b314-4df3696139bb",
+				"method": "DELETE"
+			},
+			{
+				"id": "2cf89e54-e20b-4867-936b-452d1067b69f",
 				"method": "GET"
+			},
+			{
+				"id": "d00b6fa2-7a3f-4b4e-ab31-1557c89bfdee",
+				"method": "GET"
+			},
+			{
+				"id": "734890f9-425e-4374-b918-a4d2d9a897cd",
+				"method": "DELETE"
+			},
+			{
+				"id": "08dcc3df-c889-4766-9878-1e8963368010",
+				"method": "POST"
+			},
+			{
+				"id": "ee5db499-dc91-43f6-9f6c-15369528026e",
+				"method": "PUT"
+			},
+			{
+				"id": "47b27c1b-9592-4c7c-b1d1-0ae3478db8da",
+				"method": "GET"
+			},
+			{
+				"id": "916e3e9e-18e4-41ee-860d-d758a7fe419a",
+				"method": "GET"
+			},
+			{
+				"id": "b3183f69-cfff-43d8-a982-14a3fb891c8a",
+				"method": "DELETE"
+			},
+			{
+				"id": "b6b43241-3aa9-46da-a550-953ffcdf71be",
+				"method": "POST"
+			},
+			{
+				"id": "392133df-9934-486e-9d49-871c2e04c565",
+				"method": "PUT"
+			},
+			{
+				"id": "02b0059b-d479-40b4-9b9e-2111fb5b1d12",
+				"method": "GET"
+			},
+			{
+				"id": "12c43eba-7fa6-4464-88b2-0158b1207020",
+				"method": "GET"
+			},
+			{
+				"id": "fafe1ae7-3e6e-4a05-819f-18b4ff1d0c48",
+				"method": "DELETE"
+			},
+			{
+				"id": "3175b449-a070-4080-8160-07d6860b6171",
+				"method": "POST"
+			},
+			{
+				"id": "28606ecf-05cc-4a71-9f5b-7438b990bc1a",
+				"method": "PUT"
+			},
+			{
+				"id": "0ea75737-1781-406c-92d4-04507427949d",
+				"method": "POST"
+			},
+			{
+				"id": "0d20b62f-2dbf-4bf0-8d2a-46ef202f9932",
+				"method": "POST"
 			},
 			{
 				"id": "05a6be88-5e8c-4691-b8c8-d96752523c5d",
@@ -1758,110 +1529,6 @@
 			},
 			{
 				"id": "8433c9c9-8e86-44b2-8601-19c90aca3103",
-				"method": "PUT"
-			},
-			{
-				"id": "a3345e26-9251-4548-8b10-ca1109ceac35",
-				"method": "GET"
-			},
-			{
-				"id": "1fcb3958-1c6e-492c-8daa-1a6fc7b92abc",
-				"method": "GET"
-			},
-			{
-				"id": "64b40b5f-b56c-4130-9196-57573a6554da",
-				"method": "DELETE"
-			},
-			{
-				"id": "ca339e06-b42a-4f75-bb2f-9071be8e887d",
-				"method": "DELETE"
-			},
-			{
-				"id": "a82767ab-ef96-444a-b28c-188d1991e21c",
-				"method": "POST"
-			},
-			{
-				"id": "3365fcd3-7518-4f74-a3ee-52a600ebde64",
-				"method": "POST"
-			},
-			{
-				"id": "cbfad79e-964b-4f7c-8c58-802366cbd671",
-				"method": "POST"
-			},
-			{
-				"id": "a961fddb-455d-424e-87b3-fd3325c7a30b",
-				"method": "POST"
-			},
-			{
-				"id": "7ea293d8-2901-4ec6-ae28-a230e2c671d3",
-				"method": "POST"
-			},
-			{
-				"id": "7c218bd7-c0f5-412e-af99-a73b5a2b8435",
-				"method": "POST"
-			},
-			{
-				"id": "36d887ff-3f12-4b02-8c94-d731c48dc822",
-				"method": "POST"
-			},
-			{
-				"id": "48b6f31a-1b3a-4175-b162-ed6564af8467",
-				"method": "POST"
-			},
-			{
-				"id": "ae64f5a1-6120-421c-b679-c9923ba0d218",
-				"method": "POST"
-			},
-			{
-				"id": "be00df36-66a6-419b-a13a-5239d1b8d829",
-				"method": "POST"
-			},
-			{
-				"id": "c2e2181e-bbb1-4b6d-8522-a43fc0beb624",
-				"method": "POST"
-			},
-			{
-				"id": "127097c0-e3ac-4385-9ab4-b8139ff5ef22",
-				"method": "PUT"
-			},
-			{
-				"id": "dfb4add2-c1e7-41fa-89ec-843290af2e9b",
-				"method": "PUT"
-			},
-			{
-				"id": "81feb0d7-ecf2-4114-b72a-1863ae93c382",
-				"method": "PUT"
-			},
-			{
-				"id": "17e3679e-dcaa-4abb-8a08-d459ba9086cf",
-				"method": "PUT"
-			},
-			{
-				"id": "67e8c38b-c1e9-4430-b854-dfa628410bad",
-				"method": "PUT"
-			},
-			{
-				"id": "4f36bad2-b483-4111-9d70-cbcdfbb2f6c1",
-				"method": "PUT"
-			},
-			{
-				"id": "d77d9dd5-b3c4-4ea2-a426-d8bb7abe5f99",
-				"method": "PUT"
-			},
-			{
-				"id": "e31cdbf6-5f6e-4344-9339-7c1174622272",
-				"method": "PUT"
-			},
-			{
-				"id": "22c3eca4-b187-43c9-a518-1f804350260c",
-				"method": "PUT"
-			},
-			{
-				"id": "434dcfdf-f26f-4798-b511-bb592f39823d",
-				"method": "PUT"
-			},
-			{
-				"id": "2518118f-b9ec-4a7d-bd49-f05110a0b02f",
 				"method": "PUT"
 			}
 		]

@@ -6,1217 +6,2058 @@
 	},
 	"item": [
 		{
-			"name": "0.1 Testservice",
-			"event": [
+			"name": "Auth",
+			"item": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is text/plain\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/test/test",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"test",
-						"test"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "1.0 list all passengers",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is application/json\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"passagier",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "1.1 read passenger by UUID",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is application/json\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=3d47c340-c712-402e-b400-0a23a9568c97",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"passagier",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "3d47c340-c712-402e-b400-0a23a9568c97"
+					"name": "0.3 Logout",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/user/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"user",
+								"logout"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "1.2 read passenger by UUID not found",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(410);",
-							"});",
-							"pm.test(\"Content-Type header is text/html\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=5e47c340-c712-402e-b400-0a23a9568c97",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"passagier",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "5e47c340-c712-402e-b400-0a23a9568c97"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "2.0 list all flights",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is application/json\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flug",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "2.1 read flight by UUID",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is application/json\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd26148-5341-43c6-81ed-f3f45959a12a",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flug",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "ecd26148-5341-43c6-81ed-f3f45959a12a"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "2.2 read flight by UUID not found",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(410);",
-							"});",
-							"pm.test(\"Content-Type header is text/html\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd36148-5341-43c6-81ed-f3f45959a12a",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flug",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "ecd36148-5341-43c6-81ed-f3f45959a12a"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "3.0 list all planes",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"exec": [
-							""
-						],
-						"type": "text/javascript"
-					}
+					},
+					"response": []
 				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is application/json\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/list",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flugzeug",
-						"list"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "3.1 read plane by UUID",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is application/json\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/read?uuid=3d47c340-c712-402e-b400-0a23a9568c93",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flugzeug",
-						"read"
-					],
-					"query": [
+					"name": "1.0 list all passengers forbidden",
+					"event": [
 						{
-							"key": "uuid",
-							"value": "3d47c340-c712-402e-b400-0a23a9568c93"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/html\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "3.2 read plane by UUID not found",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(410);",
-							"});",
-							"pm.test(\"Content-Type header is text/html\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/read?uuid=3d43c340-c712-402e-b400-0a23a9568c93",
-					"protocol": "http",
-					"host": [
-						"localhost"
 					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flugzeug",
-						"read"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "3d43c340-c712-402e-b400-0a23a9568c93"
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"passagier",
+								"list"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "4.1 delete passenger",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete?uuid=3d47c340-c712-402e-b400-0a23a9568c97",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"passagier",
-						"delete"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "3d47c340-c712-402e-b400-0a23a9568c97"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "4.2 delete passenger not found",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(410);",
-							"});",
-							"pm.test(\"Content-Type header is text/plain\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete?uuid=3e47c340-c712-402e-b400-0a23a9568c95",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"passagier",
-						"delete"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "3e47c340-c712-402e-b400-0a23a9568c95"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "4.5 insert passenger",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is application/json\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "",
-							"value": "",
-							"type": "text",
-							"disabled": true
-						},
-						{
-							"key": "name",
-							"value": "Messi",
-							"type": "text"
-						},
-						{
-							"key": "vorname",
-							"value": "Lionel",
-							"type": "text"
-						},
-						{
-							"key": "geburtsdatum",
-							"value": "1986-05-25",
-							"type": "text"
-						},
-						{
-							"key": "handynummer",
-							"value": "0794723435",
-							"type": "text"
-						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"passagier",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "4.20 update passenger",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is text/plain\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
+					"name": "1.1 read passenger by UUID forbidden",
+					"event": [
 						{
-							"key": "passagierUUID",
-							"value": "32e7c340-c712-402e-b400-0a23a9328c97",
-							"type": "text"
-						},
-						{
-							"key": "name",
-							"value": "Ronaldo",
-							"type": "text"
-						},
-						{
-							"key": "vorname",
-							"value": "Cristiano",
-							"type": "text"
-						},
-						{
-							"key": "geburtsdatum",
-							"value": "1983-02-05",
-							"type": "text"
-						},
-						{
-							"key": "handynummer",
-							"value": "0794723435",
-							"type": "text"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/html\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=3d47c340-c712-402e-b400-0a23a9568c97",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"passagier",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "3d47c340-c712-402e-b400-0a23a9568c97"
+								}
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"passagier",
-						"update"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "4.21 update passenger not found",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
+				{
+					"name": "4.1 delete passenger forbidden",
+					"event": [
 						{
-							"key": "passagierUUID",
-							"value": "0e47c340-c712-402e-b400-0a23a9568c97",
-							"type": "text"
-						},
-						{
-							"key": "name",
-							"value": "Verstappen",
-							"type": "text"
-						},
-						{
-							"key": "vorname",
-							"value": "Alfredo",
-							"type": "text"
-						},
-						{
-							"key": "geburtsdatum",
-							"value": "2001-02-22",
-							"type": "text"
-						},
-						{
-							"key": "handynummer",
-							"value": "0768732324",
-							"type": "text"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete?uuid=3d47c340-c712-402e-b400-0a23a9568c97",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"passagier",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "3d47c340-c712-402e-b400-0a23a9568c97"
+								}
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"passagier",
-						"update"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "5.1 delete flight",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is text/plain\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete?uuid=ecd26148-5341-43c6-81ed-f3f45959a12b",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flug",
-						"delete"
-					],
-					"query": [
+					"name": "4.5 insert passenger forbidden",
+					"event": [
 						{
-							"key": "uuid",
-							"value": "ecd26148-5341-43c6-81ed-f3f45959a12b"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "5.2 delete flight not found",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(410);",
-							"});",
-							"pm.test(\"Content-Type header is text/plain\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete?uuid=ecd36148-5341-43c6-81ed-f3f45959a12b",
-					"protocol": "http",
-					"host": [
-						"localhost"
 					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flug",
-						"delete"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "ecd36148-5341-43c6-81ed-f3f45959a12b"
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Messi",
+									"type": "text"
+								},
+								{
+									"key": "vorname",
+									"value": "Lionel",
+									"type": "text"
+								},
+								{
+									"key": "geburtsdatum",
+									"value": "1986-05-25",
+									"type": "text"
+								},
+								{
+									"key": "handynummer",
+									"value": "0794723435",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"passagier",
+								"create"
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "5.5 insert flight",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is text/plain\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "strecke",
-							"value": "4321",
-							"type": "text"
-						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flug",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "5.20 update flight",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is text/plain\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
+					"name": "4.20 update passenger forbidden",
+					"event": [
 						{
-							"key": "flugUUID",
-							"value": "ecd26148-5341-43c6-81ed-f3f45959a12a",
-							"type": "text"
-						},
-						{
-							"key": "strecke",
-							"value": "894",
-							"type": "text"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "passagierUUID",
+									"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Ronaldo",
+									"type": "text"
+								},
+								{
+									"key": "vorname",
+									"value": "Cristiano",
+									"type": "text"
+								},
+								{
+									"key": "geburtsdatum",
+									"value": "1983-02-05",
+									"type": "text"
+								},
+								{
+									"key": "handynummer",
+									"value": "0794723435",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"passagier",
+								"update"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flug",
-						"update"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "5.21 update flight not found",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(410);",
-							"});",
-							"pm.test(\"Content-Type header is text/plain\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
+					"name": "2.0 list all flights forbidden",
+					"event": [
 						{
-							"key": "flugUUID",
-							"value": "0e47c340-c712-402e-b400-0a23a9568c97",
-							"type": "text"
-						},
-						{
-							"key": "strecke",
-							"value": "942",
-							"type": "text"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/html\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flug",
+								"list"
+							]
+						}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flug",
-						"update"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "6.1 delete plane",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is text/plain\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete?uuid=3d47c340-c712-402e-b400-0a23a9568c93",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flugzeug",
-						"delete"
-					],
-					"query": [
+					"name": "2.1 read flight by UUID forbidden",
+					"event": [
 						{
-							"key": "uuid",
-							"value": "3d47c340-c712-402e-b400-0a23a9568c93"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/html\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "6.2 delete plane not found",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(410);",
-							"});",
-							"pm.test(\"Content-Type header is text/plain\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete?uuid=3e47c340-c712-402e-b400-0a23a9568c93",
-					"protocol": "http",
-					"host": [
-						"localhost"
 					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flugzeug",
-						"delete"
-					],
-					"query": [
-						{
-							"key": "uuid",
-							"value": "3e47c340-c712-402e-b400-0a23a9568c93"
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd26148-5341-43c6-81ed-f3f45959a12a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flug",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "ecd26148-5341-43c6-81ed-f3f45959a12a"
+								}
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "6.5 insert plane",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is text/plain\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "marke",
-							"value": "Ryan Air",
-							"type": "text"
-						},
-						{
-							"key": "modell",
-							"value": "airbus 350",
-							"type": "text"
-						},
-						{
-							"key": "baujahr",
-							"value": "2001",
-							"type": "text"
-						}
-					]
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flugzeug",
-						"create"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "6.20 update plane",
-			"event": [
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type header is text/plain\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
+					"name": "5.1 delete flight forbidden",
+					"event": [
 						{
-							"key": "flugzeugUUID",
-							"value": "3d47c340-c712-402e-b400-0a23a9568c93",
-							"type": "text"
-						},
-						{
-							"key": "marke",
-							"value": "Emirates",
-							"type": "text"
-						},
-						{
-							"key": "modell",
-							"value": "Boeing 777",
-							"type": "text"
-						},
-						{
-							"key": "baujahr",
-							"value": "1998",
-							"type": "text"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
-					"protocol": "http",
-					"host": [
-						"localhost"
 					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flugzeug",
-						"update"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "6.21 update plane not found",
-			"event": [
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete?uuid=ecd26148-5341-43c6-81ed-f3f45959a12b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flug",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "ecd26148-5341-43c6-81ed-f3f45959a12b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status test\", function () {",
-							"    pm.response.to.have.status(410);",
-							"});",
-							"pm.test(\"Content-Type header is text/plain\", () => {",
-							"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
+					"name": "5.5 insert flight forbidden",
+					"event": [
 						{
-							"key": "flugzeugUUID",
-							"value": "3d47c340-c712-402e-b400-0a23a9528c92",
-							"type": "text"
-						},
-						{
-							"key": "marke",
-							"value": "Emirates",
-							"type": "text"
-						},
-						{
-							"key": "modell",
-							"value": "Boeing 747",
-							"type": "text"
-						},
-						{
-							"key": "baujahr",
-							"value": "1993",
-							"type": "text"
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
 						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
-					"protocol": "http",
-					"host": [
-						"localhost"
 					],
-					"port": "8080",
-					"path": [
-						"Flugverwaltung-1.0",
-						"resource",
-						"flugzeug",
-						"update"
-					]
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "strecke",
+									"value": "4321",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flug",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.20 update flight forbidden",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "flugUUID",
+									"value": "ecd26148-5341-43c6-81ed-f3f45959a12a",
+									"type": "text"
+								},
+								{
+									"key": "strecke",
+									"value": "894",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flug",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 list all planes forbidden",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/html\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flugzeug",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.1 read plane by UUID forbidden",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/html\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/read?uuid=3d47c340-c712-402e-b400-0a23a9568c92",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flugzeug",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "3d47c340-c712-402e-b400-0a23a9568c92"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.1 delete plane forbidden",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete?uuid=3d47c340-c712-402e-b400-0a23a9568c93",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flugzeug",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "3d47c340-c712-402e-b400-0a23a9568c93"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.5 insert plane forbidden",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "marke",
+									"value": "Ryan Air",
+									"type": "text"
+								},
+								{
+									"key": "modell",
+									"value": "airbus 350",
+									"type": "text"
+								},
+								{
+									"key": "baujahr",
+									"value": "2001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flugzeug",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.20 update plane forbidden",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(403);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "flugzeugUUID",
+									"value": "3d47c340-c712-402e-b400-0a23a9568c92",
+									"type": "text"
+								},
+								{
+									"key": "marke",
+									"value": "Emirates",
+									"type": "text"
+								},
+								{
+									"key": "modell",
+									"value": "Boeing 777",
+									"type": "text"
+								},
+								{
+									"key": "baujahr",
+									"value": "1998",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flugzeug",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.2 Login failed",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql(\"text/plain\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "michi",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "54321",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "0.1 Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "gabrielito",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "geheim",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.0 list all passengers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"passagier",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.1 read passenger by UUID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=3d47c340-c712-402e-b400-0a23a9568c97",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"passagier",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "3d47c340-c712-402e-b400-0a23a9568c97"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "1.2 read passenger by UUID not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(410);",
+									"});",
+									"pm.test(\"Content-Type header is text/html\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/read?uuid=5e47c340-c712-402e-b400-0a23a9568c97",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"passagier",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "5e47c340-c712-402e-b400-0a23a9568c97"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.0 list all flights",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flug",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.1 read flight by UUID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd26148-5341-43c6-81ed-f3f45959a12a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flug",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "ecd26148-5341-43c6-81ed-f3f45959a12a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2.2 read flight by UUID not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(410);",
+									"});",
+									"pm.test(\"Content-Type header is text/html\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/read?uuid=ecd36148-5341-43c6-81ed-f3f45959a12a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flug",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "ecd36148-5341-43c6-81ed-f3f45959a12a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.0 list all planes",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flugzeug",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.1 read plane by UUID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/read?uuid=3d47c340-c712-402e-b400-0a23a9568c92",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flugzeug",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "3d47c340-c712-402e-b400-0a23a9568c92"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3.2 read plane by UUID not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(410);",
+									"});",
+									"pm.test(\"Content-Type header is text/html\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/html');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/read?uuid=3d43c340-c712-402e-b400-0a23a9568c93",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flugzeug",
+								"read"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "3d43c340-c712-402e-b400-0a23a9568c93"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.1 delete passenger",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete?uuid=3d47c340-c712-402e-b400-0a23a9568c97",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"passagier",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "3d47c340-c712-402e-b400-0a23a9568c97"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.2 delete passenger not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(410);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/delete?uuid=3e47c340-c712-402e-b400-0a23a9568c95",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"passagier",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "3e47c340-c712-402e-b400-0a23a9568c95"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.5 insert passenger",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is application/json\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "Messi",
+									"type": "text"
+								},
+								{
+									"key": "vorname",
+									"value": "Lionel",
+									"type": "text"
+								},
+								{
+									"key": "geburtsdatum",
+									"value": "1986-05-25",
+									"type": "text"
+								},
+								{
+									"key": "handynummer",
+									"value": "0794723435",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"passagier",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.20 update passenger",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "passagierUUID",
+									"value": "32e7c340-c712-402e-b400-0a23a9328c97",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Ronaldo",
+									"type": "text"
+								},
+								{
+									"key": "vorname",
+									"value": "Cristiano",
+									"type": "text"
+								},
+								{
+									"key": "geburtsdatum",
+									"value": "1983-02-05",
+									"type": "text"
+								},
+								{
+									"key": "handynummer",
+									"value": "0794723435",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"passagier",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4.21 update passenger not found",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "passagierUUID",
+									"value": "0e47c340-c712-402e-b400-0a23a9568c97",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Verstappen",
+									"type": "text"
+								},
+								{
+									"key": "vorname",
+									"value": "Alfredo",
+									"type": "text"
+								},
+								{
+									"key": "geburtsdatum",
+									"value": "2001-02-22",
+									"type": "text"
+								},
+								{
+									"key": "handynummer",
+									"value": "0768732324",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/passagier/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"passagier",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.1 delete flight",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete?uuid=ecd26148-5341-43c6-81ed-f3f45959a12b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flug",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "ecd26148-5341-43c6-81ed-f3f45959a12b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.2 delete flight not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(410);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/delete?uuid=ecd36148-5341-43c6-81ed-f3f45959a12b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flug",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "ecd36148-5341-43c6-81ed-f3f45959a12b"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.5 insert flight",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "strecke",
+									"value": "4321",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flug",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.20 update flight",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "flugUUID",
+									"value": "ecd26148-5341-43c6-81ed-f3f45959a12a",
+									"type": "text"
+								},
+								{
+									"key": "strecke",
+									"value": "894",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flug",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5.21 update flight not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(410);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "flugUUID",
+									"value": "0e47c340-c712-402e-b400-0a23a9568c97",
+									"type": "text"
+								},
+								{
+									"key": "strecke",
+									"value": "942",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flug/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flug",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.1 delete plane",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete?uuid=3d47c340-c712-402e-b400-0a23a9568c93",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flugzeug",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "3d47c340-c712-402e-b400-0a23a9568c93"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.2 delete plane not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(410);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/delete?uuid=3e47c340-c712-402e-b400-0a23a9568c93",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flugzeug",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "uuid",
+									"value": "3e47c340-c712-402e-b400-0a23a9568c93"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.5 insert plane",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "marke",
+									"value": "Ryan Air",
+									"type": "text"
+								},
+								{
+									"key": "modell",
+									"value": "airbus 350",
+									"type": "text"
+								},
+								{
+									"key": "baujahr",
+									"value": "2001",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flugzeug",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.20 update plane",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "flugzeugUUID",
+									"value": "3d47c340-c712-402e-b400-0a23a9568c92",
+									"type": "text"
+								},
+								{
+									"key": "marke",
+									"value": "Emirates",
+									"type": "text"
+								},
+								{
+									"key": "modell",
+									"value": "Boeing 777",
+									"type": "text"
+								},
+								{
+									"key": "baujahr",
+									"value": "1998",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flugzeug",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6.21 update plane not found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status test\", function () {",
+									"    pm.response.to.have.status(410);",
+									"});",
+									"pm.test(\"Content-Type header is text/plain\", () => {",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('text/plain');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "flugzeugUUID",
+									"value": "3d47c340-c712-402e-b400-0a23a9528c92",
+									"type": "text"
+								},
+								{
+									"key": "marke",
+									"value": "Emirates",
+									"type": "text"
+								},
+								{
+									"key": "modell",
+									"value": "Boeing 747",
+									"type": "text"
+								},
+								{
+									"key": "baujahr",
+									"value": "1993",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/Flugverwaltung-1.0/resource/flugzeug/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"Flugverwaltung-1.0",
+								"resource",
+								"flugzeug",
+								"update"
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		},
 		{
 			"name": "7.1 passenger read missing uuid",
