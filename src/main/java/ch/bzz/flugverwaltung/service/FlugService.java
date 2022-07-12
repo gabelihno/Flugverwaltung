@@ -26,10 +26,21 @@ public class FlugService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listFlugs(){
-        List<Flug> flugList = DataHandler.readAllFlugs();
+    public Response listFlugs(
+            @CookieParam("userRole") String userRole
+    ){
+        List<Flug> flugList = null;
+        int httpStatus;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        }
+        else {
+            httpStatus = 200;
+            flugList = DataHandler.readAllFlugs();
+        }
+
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity(flugList)
                 .build();
     }
@@ -42,15 +53,24 @@ public class FlugService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readFlug(
+            @CookieParam("userRole") String userRole,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String flugUUID
     ){
-        int httpStatus = 200;
-        Flug flug = DataHandler.readFlugByUUID(flugUUID);
-        if(flug == null) {
-            httpStatus = 410;
+        Flug flug = null;
+        int httpStatus;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
         }
+        else {
+            httpStatus = 200;
+            flug = DataHandler.readFlugByUUID(flugUUID);
+            if(flug == null) {
+                httpStatus = 410;
+            }
+        }
+
         return Response
                 .status(httpStatus)
                 .entity(flug)
@@ -64,13 +84,21 @@ public class FlugService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertFlug(
+            @CookieParam("userRole") String userRole,
             @Valid @BeanParam Flug flug
     ){
-        flug.setFlugUUID(UUID.randomUUID().toString());
+        int httpStatus;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        }
+        else {
+            httpStatus = 200;
+            flug.setFlugUUID(UUID.randomUUID().toString());
+            DataHandler.insertFlug(flug);
+        }
 
-        DataHandler.insertFlug(flug);
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }
@@ -84,21 +112,29 @@ public class FlugService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertPassenger(
+            @CookieParam("userRole") String userRole,
             @Valid @BeanParam Flug flug,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("flugUUID") String flugUUID
     ){
-        int httpStatus = 200;
-        Flug oldFlug = DataHandler.readFlugByUUID(flugUUID);
-        if(oldFlug != null) {
-            oldFlug.setStrecke(flug.getStrecke());
-
-            DataHandler.updateFlug();
+        int httpStatus;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
         }
         else {
-            httpStatus = 410;
+            httpStatus = 200;
+            Flug oldFlug = DataHandler.readFlugByUUID(flugUUID);
+            if(oldFlug != null) {
+                oldFlug.setStrecke(flug.getStrecke());
+
+                DataHandler.updateFlug();
+            }
+            else {
+                httpStatus = 410;
+            }
         }
+
         return Response
                 .status(httpStatus)
                 .entity("")
@@ -114,13 +150,20 @@ public class FlugService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteFlug(
+            @CookieParam("userRole") String userRole,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String flugUUID
     ){
-        int httpStatus = 200;
-        if(!DataHandler.deleteFlug(flugUUID)){
-            httpStatus = 410;
+        int httpStatus;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        }
+        else {
+            httpStatus = 200;
+            if(!DataHandler.deleteFlug(flugUUID)){
+                httpStatus = 410;
+            }
         }
         return Response
                 .status(httpStatus)

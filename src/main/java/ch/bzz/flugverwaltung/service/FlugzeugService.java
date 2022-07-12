@@ -27,10 +27,21 @@ public class FlugzeugService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listFlugzeugs() {
-        List<Flugzeug> flugzeugList = DataHandler.readAllFlugzeugs();
+    public Response listFlugzeugs(
+            @CookieParam("userRole") String userRole
+    ) {
+        List<Flugzeug> flugzeugList = null;
+        int httpStatus;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        }
+        else {
+            httpStatus = 200;
+            flugzeugList = DataHandler.readAllFlugzeugs();
+        }
+
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity(flugzeugList)
                 .build();
     }
@@ -43,15 +54,24 @@ public class FlugzeugService {
     @Path("read")
     @Produces(MediaType.APPLICATION_JSON)
     public Response readFlugzeug(
+            @CookieParam("userRole") String userRole,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String flugzeugUUID
     ){
-        int httpStatus = 200;
-        Flugzeug flugzeug = DataHandler.readFlugzeugByUUID(flugzeugUUID);
-        if (flugzeug == null){
-            httpStatus = 410;
+        Flugzeug flugzeug = null;
+        int httpStatus;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
         }
+        else {
+            httpStatus = 200;
+            flugzeug = DataHandler.readFlugzeugByUUID(flugzeugUUID);
+            if (flugzeug == null){
+                httpStatus = 410;
+            }
+        }
+
         return Response
                 .status(httpStatus)
                 .entity(flugzeug)
@@ -66,12 +86,21 @@ public class FlugzeugService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertFlugzeug(
+            @CookieParam("userRole") String userRole,
             @Valid @BeanParam Flugzeug flugzeug
     ){
-        flugzeug.setFlugzeugUUID(UUID.randomUUID().toString());
-        DataHandler.insertFlugzeug(flugzeug);
+        int httpStatus;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        }
+        else {
+            httpStatus = 200;
+            flugzeug.setFlugzeugUUID(UUID.randomUUID().toString());
+            DataHandler.insertFlugzeug(flugzeug);
+        }
+
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }
@@ -85,23 +114,31 @@ public class FlugzeugService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertPassenger(
+            @CookieParam("userRole") String userRole,
             @Valid @BeanParam Flugzeug flugzeug,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("flugzeugUUID") String flugzeugUUID
     ){
-        int httpStatus = 200;
-        Flugzeug oldFlugzeug = DataHandler.readFlugzeugByUUID(flugzeugUUID);
-        if(oldFlugzeug != null) {
-            oldFlugzeug.setMarke(flugzeug.getMarke());
-            oldFlugzeug.setModell(flugzeug.getModell());
-            oldFlugzeug.setBaujahr(flugzeug.getBaujahr());
+        int httpStatus;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        }
+        else{
+            httpStatus = 200;
+            Flugzeug oldFlugzeug = DataHandler.readFlugzeugByUUID(flugzeugUUID);
+            if(oldFlugzeug != null) {
+                oldFlugzeug.setMarke(flugzeug.getMarke());
+                oldFlugzeug.setModell(flugzeug.getModell());
+                oldFlugzeug.setBaujahr(flugzeug.getBaujahr());
 
-            DataHandler.updateFlugzeug();
+                DataHandler.updateFlugzeug();
+            }
+            else {
+                httpStatus = 410;
+            }
         }
-        else {
-            httpStatus = 410;
-        }
+
         return Response
                 .status(httpStatus)
                 .entity("")
@@ -117,14 +154,22 @@ public class FlugzeugService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deleteFlugzeug(
+            @CookieParam("userRole") String userRole,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String flugzeugUUID
     ){
-        int httpStatus = 200;
-        if(!DataHandler.deleteFlugzeug(flugzeugUUID)){
-            httpStatus = 410;
+        int httpStatus;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
         }
+        else {
+            httpStatus = 200;
+            if(!DataHandler.deleteFlugzeug(flugzeugUUID)){
+                httpStatus = 410;
+            }
+        }
+
         return Response
                 .status(httpStatus)
                 .entity("")

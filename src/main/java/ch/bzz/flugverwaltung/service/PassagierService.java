@@ -54,14 +54,24 @@ public class PassagierService {
     @Produces(MediaType.APPLICATION_JSON)
     public Response readPassenger(
             @NotEmpty
+            @CookieParam("userRole") String userRole,
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String passagierUUID
+
     ){
-        int httpStatus = 200;
-        Passagier passagier = DataHandler.readPassagierByUUID(passagierUUID);
-        if(passagier == null) {
-            httpStatus = 410;
+        Passagier passagier = null;
+        int httpStatus;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
         }
+        else{
+            httpStatus = 200;
+            passagier = DataHandler.readPassagierByUUID(passagierUUID);
+            if(passagier == null) {
+                httpStatus = 410;
+            }
+        }
+
             return Response
                     .status(httpStatus)
                     .entity(passagier)
@@ -76,13 +86,22 @@ public class PassagierService {
     @Path("create")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertPassenger(
+            @CookieParam("userRole") String userRole,
             @Valid @BeanParam Passagier passagier
             ){
-        passagier.setPassagierUUID(UUID.randomUUID().toString());
+        int httpStatus =0;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        }
+        else{
+            httpStatus = 200;
+            passagier.setPassagierUUID(UUID.randomUUID().toString());
+            DataHandler.insertPassagier(passagier);
+        }
 
-        DataHandler.insertPassagier(passagier);
+
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity("")
                 .build();
     }
@@ -96,24 +115,32 @@ public class PassagierService {
     @Path("update")
     @Produces(MediaType.TEXT_PLAIN)
     public Response insertPassenger(
+            @CookieParam("userRole") String userRole,
             @Valid @BeanParam Passagier passagier,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @FormParam("passagierUUID") String passagierUUID
     ){
-        int httpStatus = 200;
-        Passagier oldPassagier = DataHandler.readPassagierByUUID(passagierUUID);
-        if(oldPassagier != null) {
-            oldPassagier.setName(passagier.getName());
-            oldPassagier.setVorname(passagier.getVorname());
-            oldPassagier.setGeburtsdatum(passagier.getGeburtsdatum());
-            oldPassagier.setHandynummer(passagier.getHandynummer());
+        int httpStatus =0;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        }
+        else{
+            httpStatus = 200;
+            Passagier oldPassagier = DataHandler.readPassagierByUUID(passagierUUID);
+            if(oldPassagier != null) {
+                oldPassagier.setName(passagier.getName());
+                oldPassagier.setVorname(passagier.getVorname());
+                oldPassagier.setGeburtsdatum(passagier.getGeburtsdatum());
+                oldPassagier.setHandynummer(passagier.getHandynummer());
 
-            DataHandler.updatePassagier();
+                DataHandler.updatePassagier();
+            }
+            else {
+                httpStatus = 410;
+            }
         }
-        else {
-            httpStatus = 410;
-        }
+
         return Response
                 .status(httpStatus)
                 .entity("")
@@ -129,13 +156,20 @@ public class PassagierService {
     @Path("delete")
     @Produces(MediaType.TEXT_PLAIN)
     public Response deletePassenger(
+            @CookieParam("userRole") String userRole,
             @NotEmpty
             @Pattern(regexp = "[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}")
             @QueryParam("uuid") String passagierUUID
     ){
-        int httpStatus = 200;
-        if(!DataHandler.deletePassagier(passagierUUID)){
-            httpStatus = 410;
+        int httpStatus =0;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        }
+        else {
+            httpStatus = 200;
+            if(!DataHandler.deletePassagier(passagierUUID)){
+                httpStatus = 410;
+            }
         }
         return Response
                 .status(httpStatus)
