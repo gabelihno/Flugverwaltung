@@ -24,10 +24,21 @@ public class PassagierService {
     @GET
     @Path("list")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listPassagiers(){
-        List<Passagier> passagierList = DataHandler.readAllPassengers();
+    public Response listPassagiers(
+            @CookieParam("userRole") String userRole
+    ){
+        List<Passagier> passagierList = null;
+        int httpStatus;
+        if(userRole == null || userRole.equals("guest")) {
+            httpStatus = 403;
+        }
+        else {
+            httpStatus = 200;
+             passagierList = DataHandler.readAllPassengers();
+        }
+
         return Response
-                .status(200)
+                .status(httpStatus)
                 .entity(passagierList)
                 .build();
     }

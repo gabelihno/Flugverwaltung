@@ -20,7 +20,7 @@ import java.util.UUID;
 @Path("flug")
 public class FlugService {
     /**
-     * reads a list of all flight
+     * reads a list of all flights
      * @return
      */
     @GET
@@ -35,7 +35,7 @@ public class FlugService {
     }
 
     /**
-     * reads a flug by UUID
+     * reads a flight by UUID
      * @return
      */
     @GET

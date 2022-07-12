@@ -35,6 +35,7 @@ public class Config extends Application {
         providers.add(TestService.class);
         providers.add(FlugService.class);
         providers.add(FlugzeugService.class);
+        providers.add(UserService.class);
         return providers;
     }
 
